@@ -45,11 +45,21 @@ import org.eclipse.wb.swing.FocusTraversalOnArray;
 import java.awt.Component;
 import javax.swing.ListSelectionModel;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.BoxLayout;
+import java.awt.CardLayout;
+import java.awt.Color;
 
 public class reader {
 
 	private JFrame frame;
 	private JTable table;
+	private JTable table_1;
+	private JTable table_2;
+	private JTable table_3;
+	private JTable table_4;
+	private JTable table_5;
+	private JTable table_6;
+	private JTable table_7;
 
 	/**
 	 * Launch the application.
@@ -79,7 +89,7 @@ public class reader {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 948, 734);
+		frame.setBounds(100, 100, 945, 734);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				frame.getContentPane().setLayout(null);
 		
@@ -108,6 +118,8 @@ public class reader {
 				slider.setMinorTickSpacing(20);
 				slider.setPaintTicks(true);
 				frame.getContentPane().add(slider);
+
+				frame.getContentPane().add(btnImportarJson);
 				
 				JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 				tabbedPane.setBounds(0, 92, 922, 550);
@@ -115,57 +127,153 @@ public class reader {
 				
 				JPanel panel = new JPanel();
 				tabbedPane.addTab("Storages", null, panel, null);
+				tabbedPane.setEnabledAt(0, true);
 				panel.setLayout(null);
 				
+				JScrollPane scrollPane = new JScrollPane();
+				scrollPane.setBounds(10, 11, 897, 500);
+				panel.add(scrollPane);
+				
 				table = new JTable();
-				table.setRowSelectionAllowed(false);
-				table.setSurrendersFocusOnKeystroke(true);
-				table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-				table.setColumnSelectionAllowed(true);
-				table.setBounds(0, 11, 917, 517);
 				table.setModel(new DefaultTableModel(
 					new Object[][] {
-						{null, null, null, null, null, null, null},
 					},
 					new String[] {
 						"Used Capacity", "Total Capacity", "Stored Items", "Name", "All Stored Items", "Lon", "Lat"
 					}
 				));
-				panel.add(table);
-				
-				JScrollPane scrollPane = new JScrollPane();
-				scrollPane.setToolTipText("");
-				scrollPane.setBounds(0, 0, 917, 522);
-				panel.add(scrollPane);
-				
+				scrollPane.setViewportView(table);
 				
 				JPanel panel_1 = new JPanel();
 				tabbedPane.addTab("Resource Nodes", null, panel_1, null);
+				panel_1.setLayout(null);
+				
+				JScrollPane scrollPane_1 = new JScrollPane();
+				scrollPane_1.setBounds(10, 11, 897, 500);
+				panel_1.add(scrollPane_1);
+				
+				table_1 = new JTable();
+				table_1.setModel(new DefaultTableModel(
+					new Object[][] {
+					},
+					new String[] {
+						"Resource", "Name", "Lon", "Lat"
+					}
+				));
+				scrollPane_1.setViewportView(table_1);
 				
 				JPanel panel_2 = new JPanel();
 				tabbedPane.addTab("Teams", null, panel_2, null);
+				panel_2.setLayout(null);
+				
+				JScrollPane scrollPane_2 = new JScrollPane();
+				scrollPane_2.setBounds(10, 5, 897, 506);
+				panel_2.add(scrollPane_2);
+				
+				table_2 = new JTable();
+				table_2.setModel(new DefaultTableModel(
+					new Object[][] {
+					},
+					new String[] {
+						"Score", "Name", "Massium"
+					}
+				));
+				scrollPane_2.setViewportView(table_2);
 				
 				JPanel panel_3 = new JPanel();
-				tabbedPane.addTab("Entities", null, panel_3, null);
+				tabbedPane.addTab("Jobs", null, panel_3, null);
+				panel_3.setLayout(null);
 				
-				JPanel panel_5 = new JPanel();
-				tabbedPane.addTab("Jobs", null, panel_5, null);
+				JScrollPane scrollPane_3 = new JScrollPane();
+				scrollPane_3.setBounds(10, 5, 897, 506);
+				panel_3.add(scrollPane_3);
+				
+				table_3 = new JTable();
+				table_3.setModel(new DefaultTableModel(
+					new Object[][] {
+					},
+					new String[] {
+						"Reward", "Delivered Items", "Start", "End", "Id", "Storage", "Poster", "Required Items"
+					}
+				));
+				scrollPane_3.setViewportView(table_3);
 				
 				JPanel panel_6 = new JPanel();
 				tabbedPane.addTab("Dumps", null, panel_6, null);
+				panel_6.setLayout(null);
+				
+				JScrollPane scrollPane_4 = new JScrollPane();
+				scrollPane_4.setBounds(10, 5, 897, 506);
+				panel_6.add(scrollPane_4);
+				
+				table_4 = new JTable();
+				table_4.setModel(new DefaultTableModel(
+					new Object[][] {
+					},
+					new String[] {
+						"Name", "Lon", "Lat"
+					}
+				));
+				scrollPane_4.setViewportView(table_4);
 				
 				JPanel panel_7 = new JPanel();
 				tabbedPane.addTab("Workshops", null, panel_7, null);
+				panel_7.setLayout(null);
+				
+				JScrollPane scrollPane_5 = new JScrollPane();
+				scrollPane_5.setBounds(10, 5, 897, 506);
+				panel_7.add(scrollPane_5);
+				
+				table_5 = new JTable();
+				table_5.setModel(new DefaultTableModel(
+					new Object[][] {
+					},
+					new String[] {
+						"Name", "Lon", "Lat"
+					}
+				));
+				scrollPane_5.setViewportView(table_5);
+				
+				JPanel panel_4 = new JPanel();
+				panel_4.setLayout(null);
+				tabbedPane.addTab("Shops", null, panel_4, null);
+				
+				JScrollPane scrollPane_6 = new JScrollPane();
+				scrollPane_6.setBounds(10, 5, 897, 506);
+				panel_4.add(scrollPane_6);
+				
+				table_6 = new JTable();
+				table_6.setModel(new DefaultTableModel(
+					new Object[][] {
+					},
+					new String[] {
+						"Name", "Lon", "Lat"
+					}
+				));
+				scrollPane_6.setViewportView(table_6);
 				
 				JPanel panel_8 = new JPanel();
 				tabbedPane.addTab("Wells", null, panel_8, null);
+				panel_8.setLayout(null);
 				
-				JPanel panel_4 = new JPanel();
-				tabbedPane.addTab("Charging Stations", null, panel_4, null);
-				panel_4.setLayout(null);
-
-				frame.getContentPane().add(btnImportarJson);
-				frame.getContentPane().setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{lblTitle, slider, tabbedPane, panel, panel_1, panel_2, panel_3, panel_5, panel_6, panel_7, panel_8, panel_4, btnImportarJson}));
+				JPanel panel_5 = new JPanel();
+				panel_5.setLayout(null);
+				tabbedPane.addTab("Charging Stations", null, panel_5, null);
+				
+				JScrollPane scrollPane_7 = new JScrollPane();
+				scrollPane_7.setBounds(10, 5, 897, 506);
+				panel_5.add(scrollPane_7);
+				
+				table_7 = new JTable();
+				table_7.setModel(new DefaultTableModel(
+					new Object[][] {
+					},
+					new String[] {
+						"Rate", "Name", "Lon", "Late"
+					}
+				));
+				scrollPane_7.setViewportView(table_7);
+				frame.getContentPane().setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{lblTitle, slider, tabbedPane, panel, panel_1, panel_2, panel_3, panel_6, panel_7, panel_8, btnImportarJson}));
 	}
 
 	public void readJSON(File file) {
