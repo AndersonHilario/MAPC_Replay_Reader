@@ -60,6 +60,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 public class reader {
 
 	private JFrame frame;
+	private JTabbedPane tabbedPaneAgents;
 	private JTable tableStorages;
 	private JTable tableResourceNodes;
 	private JTable tableTeams;
@@ -68,7 +69,6 @@ public class reader {
 	private JTable tableWorkshops;
 	private JTable tableShops;
 	private JTable tableChargingStation;
-	private JSlider slider;
 	public int filesUploaded = 0;
 	private JTable tableAgents;
 	private JTable tableWells;
@@ -114,15 +114,8 @@ public class reader {
 
 			public void addFileCount() {
 				filesUploaded++;
-				updateSlider(numberOfSteps, slider);
 			}
 		});
-
-		slider = new JSlider();
-		slider.setValue(0);
-		slider.setMinorTickSpacing(0);
-		slider.setPaintLabels(true);
-		slider.setPaintTicks(true);
 
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 
@@ -273,36 +266,40 @@ public class reader {
 						.addComponent(scrollPane_7, GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)));
 		panel_5.setLayout(gl_panel_5);
 
-		JTabbedPane tabbedPane_1 = new JTabbedPane(JTabbedPane.TOP);
+	    tabbedPaneAgents = new JTabbedPane(JTabbedPane.TOP);
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup().addGap(10)
-						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblTitle, GroupLayout.DEFAULT_SIZE, 907, Short.MAX_VALUE)
-								.addGroup(groupLayout.createSequentialGroup().addGap(10).addComponent(slider,
-										GroupLayout.DEFAULT_SIZE, 897, Short.MAX_VALUE)))
-						.addGap(10))
-				.addGroup(groupLayout.createSequentialGroup().addGap(10)
-						.addComponent(btnImportarJson, GroupLayout.DEFAULT_SIZE, 907, Short.MAX_VALUE).addGap(10))
-				.addGroup(groupLayout.createSequentialGroup().addContainerGap().addComponent(tabbedPane)
-						.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(tabbedPane_1).addContainerGap()));
-		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(groupLayout
-				.createSequentialGroup()
-				.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-						.addGroup(groupLayout.createSequentialGroup()
-								.addComponent(lblTitle, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.RELATED, 34, Short.MAX_VALUE))
-						.addGroup(groupLayout.createSequentialGroup().addContainerGap(49, Short.MAX_VALUE)
-								.addComponent(slider, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)))
-				.addGap(4)
-				.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(tabbedPane_1, GroupLayout.DEFAULT_SIZE, 555, Short.MAX_VALUE)
-						.addComponent(tabbedPane))
-				.addPreferredGap(ComponentPlacement.RELATED)
-				.addComponent(btnImportarJson, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE).addGap(15)));
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(10)
+					.addComponent(lblTitle, GroupLayout.DEFAULT_SIZE, 907, Short.MAX_VALUE)
+					.addGap(10))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(10)
+					.addComponent(btnImportarJson, GroupLayout.DEFAULT_SIZE, 907, Short.MAX_VALUE)
+					.addGap(10))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(tabbedPaneAgents, GroupLayout.DEFAULT_SIZE, 534, Short.MAX_VALUE)
+					.addContainerGap())
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addComponent(lblTitle, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+						.addComponent(tabbedPaneAgents, GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
+						.addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnImportarJson, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
+					.addGap(15))
+		);
 
 		JPanel panel_9 = new JPanel();
-		tabbedPane_1.addTab("Agents", null, panel_9, null);
+		tabbedPaneAgents.addTab("Agents", null, panel_9, null);
 
 		JScrollPane scrollPane_8 = new JScrollPane();
 
@@ -318,8 +315,7 @@ public class reader {
 				GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE));
 		panel_9.setLayout(gl_panel_9);
 		frame.getContentPane().setLayout(groupLayout);
-		frame.getContentPane().setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[] { lblTitle, slider,
-				tabbedPane, panel, panel_2, panel_3, panel_6, panel_7, panel_8, btnImportarJson }));
+		frame.getContentPane().setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{lblTitle, tabbedPane, panel, panel_2, panel_3, panel_6, panel_7, panel_8, btnImportarJson}));
 	}
 
 	private void updateSlider(int numberOfSteps, JSlider slider) {
