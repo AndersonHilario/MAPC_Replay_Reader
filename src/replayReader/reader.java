@@ -80,6 +80,10 @@ public class reader {
 	private JComboBox<String> comboBoxTblAgents3;
 	private JTable tableAgents3;
 	private JTable tableAgents2;
+	private boolean resetedChange;
+	private ArrayList<String> combo1Historico = new ArrayList<>();
+	private ArrayList<String> combo2Historico = new ArrayList<>();
+	private ArrayList<String> combo3Historico = new ArrayList<>();
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -298,6 +302,7 @@ public class reader {
 		comboBoxTblAgents2 = new JComboBox<String>();
 
 		comboBoxTblAgents3 = new JComboBox<String>();
+
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(groupLayout
 				.createSequentialGroup().addGap(10)
@@ -368,6 +373,7 @@ public class reader {
 
 	public void readJSON(File file) {
 		try {
+			resetedChange = false;
 			String fileNameExt = file.getName();
 			String fileName = FilenameUtils.removeExtension(fileNameExt);
 			int stepInt = 0;
@@ -531,19 +537,19 @@ public class reader {
 		for (int i = 0; i < agents.size(); i++) {
 			JSONObject agentAtual = (JSONObject) agents.get(i);
 			String name = (String) agentAtual.get("name");
-			if (i <= 8) {
+			if (i <= 22) {
 				if (combobox.getIndexOf(name) == -1) {
 					comboBoxTblAgents1.addItem(name);
 				}
 			}
 
-			if (i > 8 && i <= 24) {
+			if (i > 22 && i <= 44) {
 				if (combobox2.getIndexOf(name) == -1) {
 					comboBoxTblAgents2.addItem(name);
 				}
 			}
 
-			if (i > 24) {
+			if (i > 44) {
 				if (combobox3.getIndexOf(name) == -1) {
 					comboBoxTblAgents3.addItem(name);
 				}
@@ -565,18 +571,16 @@ public class reader {
 		}
 	}
 
-	
 	private void resetTable(DefaultTableModel model) {
 		if (model.getRowCount() > 0) {
+			resetedChange = true;
 			while (model.getRowCount() > 0) {
 				model.removeRow(0);
 			}
 		}
 	}
 
-	
 	private void fillTableAgents(JSONArray agents) {
-		
 		comboBoxTblAgents1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				DefaultTableModel model = (DefaultTableModel) tableAgents1.getModel();
@@ -603,41 +607,151 @@ public class reader {
 						double lon = (double) agentAtual.get("lon");
 						double lat = (double) agentAtual.get("lat");
 
-						model.addRow(new Object[] { chargeMax, charge, role, routeLength, lon, team, loadMax, speed, vision,
-								route, load, lastAction, skill, name, items, facility, lat });
+						combo1Historico.add(name);
+						int size = combo1Historico.size();
+						if (size >= 2) {
+							if (!combo1Historico.get(size - 1).equalsIgnoreCase(combo1Historico.get(size - 2))) {
+								resetTable(model);
+							}
+						}
+
+						model.addRow(new Object[] { chargeMax, charge, role, routeLength, lon, team, loadMax, speed,
+								vision, route, load, lastAction, skill, name, items, facility, lat });
 					}
 				}
 			}
 		});
-		
+
+		comboBoxTblAgents2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				DefaultTableModel model = (DefaultTableModel) tableAgents2.getModel();
+				Object agenteSelecionadoCombo2 = comboBoxTblAgents2.getSelectedItem();
+
+				for (int i = 0; i < agents.size(); i++) {
+					JSONObject agentAtual = (JSONObject) agents.get(i);
+					if (agentAtual.get("name").equals(agenteSelecionadoCombo2)) {
+						long chargeMax = (long) agentAtual.get("chargeMax");
+						long charge = (long) agentAtual.get("charge");
+						String role = (String) agentAtual.get("role");
+						long routeLength = (long) agentAtual.get("routeLength");
+						String team = (String) agentAtual.get("team");
+						long loadMax = (long) agentAtual.get("loadMax");
+						long speed = (long) agentAtual.get("speed");
+						long vision = (long) agentAtual.get("vision");
+						JSONArray route = (JSONArray) agentAtual.get("route");
+						long load = (long) agentAtual.get("load");
+						JSONObject lastAction = (JSONObject) agentAtual.get("lastAction");
+						long skill = (long) agentAtual.get("skill");
+						String name = (String) agentAtual.get("name");
+						JSONArray items = (JSONArray) agentAtual.get("items");
+						String facility = (String) agentAtual.get("facility");
+						double lon = (double) agentAtual.get("lon");
+						double lat = (double) agentAtual.get("lat");
+
+						combo2Historico.add(name);
+						int size = combo2Historico.size();
+						if (size >= 2) {
+							if (!combo2Historico.get(size - 1).equalsIgnoreCase(combo2Historico.get(size - 2))) {
+								resetTable(model);
+							}
+						}
+						
+						model.addRow(new Object[] { chargeMax, charge, role, routeLength, lon, team, loadMax, speed,
+								vision, route, load, lastAction, skill, name, items, facility, lat });
+					}
+				}
+			}
+		});
+
+		comboBoxTblAgents3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DefaultTableModel model = (DefaultTableModel) tableAgents3.getModel();
+				Object agenteSelecionadoCombo3 = comboBoxTblAgents3.getSelectedItem();
+
+				for (int i = 0; i < agents.size(); i++) {
+					JSONObject agentAtual = (JSONObject) agents.get(i);
+					if (agentAtual.get("name").equals(agenteSelecionadoCombo3)) {
+						long chargeMax = (long) agentAtual.get("chargeMax");
+						long charge = (long) agentAtual.get("charge");
+						String role = (String) agentAtual.get("role");
+						long routeLength = (long) agentAtual.get("routeLength");
+						String team = (String) agentAtual.get("team");
+						long loadMax = (long) agentAtual.get("loadMax");
+						long speed = (long) agentAtual.get("speed");
+						long vision = (long) agentAtual.get("vision");
+						JSONArray route = (JSONArray) agentAtual.get("route");
+						long load = (long) agentAtual.get("load");
+						JSONObject lastAction = (JSONObject) agentAtual.get("lastAction");
+						long skill = (long) agentAtual.get("skill");
+						String name = (String) agentAtual.get("name");
+						JSONArray items = (JSONArray) agentAtual.get("items");
+						String facility = (String) agentAtual.get("facility");
+						double lon = (double) agentAtual.get("lon");
+						double lat = (double) agentAtual.get("lat");
+
+						combo3Historico.add(name);
+						int size = combo3Historico.size();
+						if (size >= 2) {
+							if (!combo3Historico.get(size - 1).equalsIgnoreCase(combo3Historico.get(size - 2))) {
+								resetTable(model);
+							}
+						}
+						
+						model.addRow(new Object[] { chargeMax, charge, role, routeLength, lon, team, loadMax, speed,
+								vision, route, load, lastAction, skill, name, items, facility, lat });
+					}
+				}
+			}
+		});
+
 		DefaultTableModel model = (DefaultTableModel) tableAgents1.getModel();
-		
+		DefaultTableModel model2 = (DefaultTableModel) tableAgents2.getModel();
+		DefaultTableModel model3 = (DefaultTableModel) tableAgents3.getModel();
+
 		Object agenteSelecionadoCombo1 = comboBoxTblAgents1.getSelectedItem();
+		Object agenteSelecionadoCombo2 = comboBoxTblAgents2.getSelectedItem();
+		Object agenteSelecionadoCombo3 = comboBoxTblAgents3.getSelectedItem();
 
 		for (int i = 0; i < agents.size(); i++) {
-			JSONObject agentAtual = (JSONObject) agents.get(i);
-			if (agentAtual.get("name").equals(agenteSelecionadoCombo1)) {
-				long chargeMax = (long) agentAtual.get("chargeMax");
-				long charge = (long) agentAtual.get("charge");
-				String role = (String) agentAtual.get("role");
-				long routeLength = (long) agentAtual.get("routeLength");
-				String team = (String) agentAtual.get("team");
-				long loadMax = (long) agentAtual.get("loadMax");
-				long speed = (long) agentAtual.get("speed");
-				long vision = (long) agentAtual.get("vision");
-				JSONArray route = (JSONArray) agentAtual.get("route");
-				long load = (long) agentAtual.get("load");
-				JSONObject lastAction = (JSONObject) agentAtual.get("lastAction");
-				long skill = (long) agentAtual.get("skill");
-				String name = (String) agentAtual.get("name");
-				JSONArray items = (JSONArray) agentAtual.get("items");
-				String facility = (String) agentAtual.get("facility");
-				double lon = (double) agentAtual.get("lon");
-				double lat = (double) agentAtual.get("lat");
 
+			JSONObject agentAtual = (JSONObject) agents.get(i);
+			long chargeMax = (long) agentAtual.get("chargeMax");
+			long charge = (long) agentAtual.get("charge");
+			String role = (String) agentAtual.get("role");
+			long routeLength = (long) agentAtual.get("routeLength");
+			String team = (String) agentAtual.get("team");
+			long loadMax = (long) agentAtual.get("loadMax");
+			long speed = (long) agentAtual.get("speed");
+			long vision = (long) agentAtual.get("vision");
+			JSONArray route = (JSONArray) agentAtual.get("route");
+			long load = (long) agentAtual.get("load");
+			JSONObject lastAction = (JSONObject) agentAtual.get("lastAction");
+			long skill = (long) agentAtual.get("skill");
+			String name = (String) agentAtual.get("name");
+			JSONArray items = (JSONArray) agentAtual.get("items");
+			String facility = (String) agentAtual.get("facility");
+			double lon = (double) agentAtual.get("lon");
+			double lat = (double) agentAtual.get("lat");
+			
+
+			if (name.equals(agenteSelecionadoCombo1)) {
+				combo1Historico.add(name);
 				model.addRow(new Object[] { chargeMax, charge, role, routeLength, lon, team, loadMax, speed, vision,
 						route, load, lastAction, skill, name, items, facility, lat });
 			}
+
+			if (name.equals(agenteSelecionadoCombo2)) {
+				combo2Historico.add(name);
+				model2.addRow(new Object[] { chargeMax, charge, role, routeLength, lon, team, loadMax, speed, vision,
+						route, load, lastAction, skill, name, items, facility, lat });
+			}
+
+			if (name.equals(agenteSelecionadoCombo3)) {
+				combo3Historico.add(name);
+				model3.addRow(new Object[] { chargeMax, charge, role, routeLength, lon, team, loadMax, speed, vision,
+						route, load, lastAction, skill, name, items, facility, lat });
+			}
+
 		}
 	}
 }
