@@ -1,0 +1,620 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+
+<channel>
+	<title>Planet Eclipse</title>
+	<link>http://planeteclipse.org/planet/</link>
+	<language>en</language>
+	<description>Planet Eclipse - http://planeteclipse.org/planet/</description>
+
+<item>
+	<title>EclipseCon Europe 2018: Calling all JUGs!</title>
+	<guid isPermaLink="false">https://www.eclipsecon.org/news/674 at https://www.eclipsecon.org</guid>
+	<link>https://www.eclipsecon.org/europe2018/news/calling-all-jugs</link>
+	<description>&lt;div class=&quot;field field-name-body field-type-text-with-summary field-label-hidden&quot;&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;&lt;p&gt;JUGs and Meetups are invited to join the &lt;a href=&quot;https://www.eclipsecon.org/europe2018/jugs&quot;&gt;JUG Partner Program&lt;/a&gt; for EclipseCon Europe 2018. Provide your members with an opportunity to participate with special rates at the conference and help grow our shared communities.&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;field field-name-field-news-image field-type-image field-label-hidden&quot;&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;&lt;a href=&quot;https://www.eclipsecon.org/europe2018/news/calling-all-jugs&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;img-responsive block-center&quot; height=&quot;250&quot; src=&quot;https://www.eclipsecon.org/sites/default/files/styles/solstice_news_-_default_-_thumbnail/public/news/Duke360x360.png?itok=evkWlfVm&quot; width=&quot;250&quot; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description>
+	<pubDate>Wed, 22 Aug 2018 11:15:35 +0000</pubDate>
+</item>
+<item>
+	<title>EclipseCon Europe 2018: What and When</title>
+	<guid isPermaLink="false">https://www.eclipsecon.org/news/671 at https://www.eclipsecon.org</guid>
+	<link>https://www.eclipsecon.org/europe2018/news/what-and-when</link>
+	<description>&lt;div class=&quot;field field-name-body field-type-text-with-summary field-label-hidden&quot;&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;&lt;p&gt;It's time to start planning your own personal schedule for EclipseCon Europe – see the Tuesday through Thursday details &lt;a href=&quot;https://www.eclipsecon.org/europe2018/schedule/2018-10-23&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The Community Day schedule for Monday is coming soon.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;field field-name-field-news-image field-type-image field-label-hidden&quot;&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;&lt;a href=&quot;https://www.eclipsecon.org/europe2018/news/what-and-when&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;img-responsive block-center&quot; height=&quot;250&quot; src=&quot;https://www.eclipsecon.org/sites/default/files/styles/solstice_news_-_default_-_thumbnail/public/news/pgms_square.jpg?itok=43Gky32R&quot; width=&quot;250&quot; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description>
+	<pubDate>Tue, 21 Aug 2018 23:51:33 +0000</pubDate>
+</item>
+<item>
+	<title>Scott Lewis: Python for OSGi Remote Services</title>
+	<guid isPermaLink="false">tag:blogger.com,1999:blog-20358640.post-6074483969215568763</guid>
+	<link>http://eclipseecf.blogspot.com/2018/08/python-for-osgi-remote-services.html</link>
+	<description>The &lt;a href=&quot;https://ipopo.readthedocs.io/&quot;&gt;iPOPO project&lt;/a&gt; is a Python implementation of key parts of a standard OSGi framework...e.g. bundles, the service registry and servicereference api, and a dynamic service injection framework similar to the &lt;a href=&quot;http://felix.apache.org/documentation/subprojects/apache-felix-ipojo.html&quot;&gt;Apache iPOJO project&lt;/a&gt;...thus the name &lt;a href=&quot;https://ipopo.readthedocs.io/&quot;&gt;iPOPO&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;With the &lt;a href=&quot;https://github.com/tcalmant/ipopo/releases/tag/0.8.0&quot;&gt;0.8.0 release of iPOPO&lt;/a&gt;, there is now a Python implementation of the &lt;a href=&quot;https://osgi.org/specification/osgi.cmpn/7.0.0/service.remoteservices.html&quot;&gt;OSGi Remote Services&lt;/a&gt; and &lt;a href=&quot;https://osgi.org/specification/osgi.cmpn/7.0.0/service.remoteserviceadmin.html&quot;&gt;Remote Service Admin (RSA)&lt;/a&gt; specifications.   To distinguish from the previously-provided remote services in iPOPO, this is known as &lt;a href=&quot;https://ipopo.readthedocs.io/en/0.8.0/tutorials/index.html&quot;&gt;RSA Remote Services&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;iPOPO's RSA Remote Services has many of the same advantages as Java-based Remote Services/RSA.  Some of these advantages:&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Decoupling &lt;/b&gt;- name/service contract is decoupled from the implementation (and distribution)&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Dynamics &lt;/b&gt;- The service registry dynamics behavior, along with all notifications, etc is available in Python&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Injection and Service Dependency Management&lt;/b&gt; - iPOPO provides service injection and dependency management, built upon the Python API&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Standard RemoteServiceAdmin Management Agent, RSA Console Commands&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;&lt;b&gt;API for Distribution and Discovery Providers&lt;/b&gt; - There are documented APIs for creating new distribution and discovery providers, making it easy to support other transports and implementations for distribution (e.g. REST/JaxRS, Jsonrpc, MQTT, Zeroconf Discovery, etc).&lt;br /&gt;&lt;br /&gt;Other advantages of Java-based OSGi services are &lt;a href=&quot;https://www.osgi.org/developer/architecture/&quot;&gt;described here&lt;/a&gt;.   All of these advantages apply to Python/iPOPO-based services, but Python can be used to implement and/or consume services.&lt;br /&gt;&lt;br /&gt;Currently, there are two distribution providers included with iPOPO 0.8.0:  &lt;b&gt;XmlRpc&lt;/b&gt;, &lt;b&gt;Python-Java &lt;/b&gt;and one discovery provider: &lt;b&gt;&lt;a href=&quot;https://github.com/coreos/etcd&quot;&gt;etcd&lt;/a&gt;.   &lt;/b&gt;&lt;a href=&quot;https://ipopo.readthedocs.io/en/0.8.0/tutorials/index.html&quot;&gt;See here for tutorials&lt;/a&gt; showing their usage with included sample remote services.  &lt;br /&gt;&lt;br /&gt;Other distribution and discovery providers are being considered or worked on.  If you are interested in seeing a particular transport supported for distribution or discovery please open an issue on the &lt;a href=&quot;https://github.com/tcalmant/ipopo&quot;&gt;iPOPO project&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Remote Services between Python and Java&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;The Python-Java distribution provider makes it possible to use OSGi Remote Services between Python and Java...on both sides.    This allows Remote Services to be exported from Python, and discovered/imported and consumed in Java, or exported from Java and discovered/imported/consumed from Python.  See &lt;a href=&quot;https://ipopo.readthedocs.io/en/0.8.0/tutorials/rsa_pythonjava.html&quot;&gt;here for a sample and tutorial&lt;/a&gt;.   These capabilities and the underlying distribution provider will be described in more detail in a subsequent posting.&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;</description>
+	<pubDate>Tue, 21 Aug 2018 21:09:23 +0000</pubDate>
+	<author>noreply@blogger.com (Scott Lewis)</author>
+</item>
+<item>
+	<title>Eclipse Announcements: Eclipse Foundation and IBM Partner to Help Fight Natural Disasters in New Global Open Source Software Initiative</title>
+	<guid isPermaLink="true">http://feedproxy.google.com/~r/eclipse/fnews/~3/fgwWpQHyAlU/Eclipse-Foundation-and-IBM-Partner-to-Help-Fight-Natural-Disasters-in-New-Global-Open-Source-Software-Initiative.html</guid>
+	<link>http://feedproxy.google.com/~r/eclipse/fnews/~3/fgwWpQHyAlU/Eclipse-Foundation-and-IBM-Partner-to-Help-Fight-Natural-Disasters-in-New-Global-Open-Source-Software-Initiative.html</link>
+	<description>OSS developers are encouraged to create solutions that help communities improve disaster preparedness &amp;amp; recovery.&lt;img alt=&quot;&quot; height=&quot;1&quot; src=&quot;http://feeds.feedburner.com/~r/eclipse/fnews/~4/fgwWpQHyAlU&quot; width=&quot;1&quot; /&gt;</description>
+	<pubDate>Tue, 21 Aug 2018 19:00:00 +0000</pubDate>
+</item>
+<item>
+	<title>Scott Lewis: Rest Remote Services with CXF or Jersey</title>
+	<guid isPermaLink="false">tag:blogger.com,1999:blog-20358640.post-8613088716780413920</guid>
+	<link>http://eclipseecf.blogspot.com/2018/07/rest-remote-services-with-karaf-and.html</link>
+	<description>ECF's &lt;a href=&quot;https://www.eclipse.org/ecf/NewAndNoteworthy.html&quot;&gt;Photon Release&lt;/a&gt; now includes an example of using &lt;a href=&quot;https://wiki.eclipse.org/Tutorial:_JaxRS_Remote_Services_on_Karaf&quot;&gt;Karaf with the JaxRS distribution provider&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;This distribution provider now fully supports OSGi R7 remote services, including &lt;a href=&quot;http://eclipseecf.blogspot.com/2018/06/ecf-photon-supports-osgi-r7-async.html&quot;&gt;async remote services&lt;/a&gt;, using either the &lt;a href=&quot;https://wiki.eclipse.org/Tutorial:_JaxRS_Remote_Services_on_Karaf#Using_Jersey_JaxRS_Rather_than_CXF&quot;&gt;Jersey&lt;/a&gt; or &lt;a href=&quot;https://wiki.eclipse.org/Tutorial:_JaxRS_Remote_Services_on_Karaf#Install_CXF_Distribution_Provider_Karaf_Console&quot;&gt;CXF&lt;/a&gt; JaxRS implementations.&lt;br /&gt;&lt;br /&gt;This allows service developers to easily use only &lt;a href=&quot;https://en.wikipedia.org/wiki/Java_API_for_RESTful_Web_Services&quot;&gt;JAX-RS&lt;/a&gt; annotations to define and implement OSGi R7 remote services.</description>
+	<pubDate>Tue, 21 Aug 2018 18:48:53 +0000</pubDate>
+	<author>noreply@blogger.com (Scott Lewis)</author>
+</item>
+<item>
+	<title>Thabang Mashologu: Open Source for the Greater Good</title>
+	<guid isPermaLink="false">https://blogs.eclipse.org/6637 at https://blogs.eclipse.org</guid>
+	<link>https://blogs.eclipse.org/post/thabang-mashologu/open-source-greater-good</link>
+	<description>&lt;div class=&quot;field field-name-body field-type-text-with-summary field-label-hidden&quot;&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;&lt;p&gt;The Eclipse Foundation is joining forces with IBM and other leading organizations in the &lt;a href=&quot;https://callforcode.org/&quot;&gt;Call for Code&lt;/a&gt; initiative to promote the development of open source solutions to mitigate the effects of natural disasters. The Foundation is proud to support tackling one of the world’s greatest challenges through the creation of sustainable technology that helps people. We encourage the Eclipse community to contribute their considerable talents to this worthy cause!&lt;br /&gt;
+&lt;strong&gt;&lt;img src=&quot;https://lh4.googleusercontent.com/ykYoC7sfZqlW8BCPEawR9nKlDoGl4X2gbrZ2XFklrAbVvd5Mf4nItzI5ZKWW_grdwNQMe5YNnM_f_vvLKrjSuKq95G1kfOfj5J0YuCWH6skFaes6GgLqQ9SJit0_rqtRtmOvTnRF&quot; style=&quot;height: 351px; width: 624px;&quot; /&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p dir=&quot;ltr&quot;&gt; &lt;/p&gt;
+
+&lt;p dir=&quot;ltr&quot;&gt;&lt;strong&gt;Solving a Problem of Global Proportions&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p dir=&quot;ltr&quot;&gt;The Call for Code Global Challenge was originally created by &lt;a href=&quot;https://davidclarkcause.com/&quot;&gt;David Clark Cause&lt;/a&gt;, a company that brings diverse stakeholders together to participate in purpose-driven initiatives around the world. Call for Code is powered by IBM and draws support from over 35 organizations, including United Nations Human Rights and the American Red Cross. The initiative asks developers to create solutions that significantly improve preparedness for severe weather events, help to safeguard public health and well-being, and help people recover from natural disasters.&lt;/p&gt;
+
+&lt;p dir=&quot;ltr&quot;&gt;Here are just a few sobering statistics on the global impact of natural disasters (courtesy of Call for Code):&lt;/p&gt;
+
+&lt;ul dir=&quot;ltr&quot;&gt;
+	&lt;li&gt;Since 2000, natural disasters have directly affected 2.5 billion people. Over 1 million people have died as a result of natural disasters in that period of time.&lt;/li&gt;
+	&lt;li&gt;Severe weather events are responsible for $1.5 trillion of economic impact since 2003.&lt;/li&gt;
+	&lt;li&gt;Over the last 30 years, flooding is up over 240%.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A Role for the Eclipse Community&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Open source is about giving back. &lt;/p&gt;
+
+&lt;p&gt;Many of us within the Eclipse community believe that technology innovation is a force for good in the world. Our global community has a demonstrated track record of practical problem solving by developing sustainable open technologies. IBM is both a &lt;a href=&quot;https://www.eclipse.org/membership/exploreMembership.php&quot;&gt;Strategic member&lt;/a&gt; of the Eclipse Foundation and a co-founder of Call for Code, so when they asked us to help rally developers to alleviate human suffering through lasting and scalable open source, we immediately committed our support to this remarkable effort.&lt;/p&gt;
+
+&lt;p&gt;In addition to the Eclipse Foundation’s own commitment to this cause, we are calling on our broad community of developers to participate as well. There are many ways to participate -- leverage our &lt;a href=&quot;https://www.eclipse.org/projects/&quot;&gt;existing projects&lt;/a&gt; in creating specific applications (such as the &lt;a href=&quot;https://iot.eclipse.org/projects/&quot;&gt;Eclipse IoT stacks&lt;/a&gt; and many others), contribute new code that addresses a specific need, develop test cases, testbeds, examples, etc. Every contribution helps. &lt;/p&gt;
+
+&lt;p&gt;We hope the inaugural Call for Code Challenge is just the start of an ongoing commitment by software developers to have a major, positive impact on our world. 22 million developers around the world can truly make a difference, and we’re glad to be a part of this amazing movement.&lt;/p&gt;
+
+&lt;p&gt;Please join us and answer the call! To get involved and start building today, visit &lt;a href=&quot;https://callforcode.org/&quot;&gt;CallforCode.org&lt;/a&gt;.&lt;br /&gt;
+ &lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description>
+	<pubDate>Tue, 21 Aug 2018 16:15:37 +0000</pubDate>
+</item>
+<item>
+	<title>Orion: Announcing Orion 19</title>
+	<guid isPermaLink="false">http://planetorion.org/news/?p=913</guid>
+	<link>http://planetorion.org/news/2018/08/announcing-orion-19/</link>
+	<description>&lt;p&gt;We are pleased to announce the nineteenth release of Orion, “Your IDE in the Cloud”. You can run it now at &lt;a href=&quot;https://orionhub.org/&quot;&gt;OrionHub,&lt;/a&gt; from &lt;a href=&quot;https://www.npmjs.com/package/orion&quot;&gt;NPM&lt;/a&gt; or &lt;a href=&quot;http://download.eclipse.org/orion/drops/R-19.0-201808171438/index.html&quot;&gt;download the server&lt;/a&gt; to run your own instance locally.&lt;/p&gt;
+&lt;p&gt;Once again, thank you to all committers and contributors for your hard work this release. There were 11 bugs and enhancements fixed, across &lt;a href=&quot;https://github.com/eclipse/orion.client/compare/R18_0...R19_0&quot;&gt;36 commits&lt;/a&gt; from 5 authors.&lt;/p&gt;
+&lt;p&gt;This release was focussed entirely on accessibility.&lt;/p&gt;</description>
+	<pubDate>Mon, 20 Aug 2018 13:44:19 +0000</pubDate>
+</item>
+<item>
+	<title>vert.x project: The RSS reader tutorial</title>
+	<guid isPermaLink="true">https://vertx.io/blog/the-rss-reader-tutorial</guid>
+	<link>https://vertx.io/blog/the-rss-reader-tutorial</link>
+	<description>&lt;article&gt;&lt;h1 id=&quot;the-rss-reader-tutorial&quot;&gt;The RSS reader tutorial&lt;/h1&gt;
+&lt;p&gt;This tutorial is dedicated for users who’d like to know how to use the Eclipse Vert.x Cassandra client with in practice.&lt;/p&gt;
+&lt;h1 id=&quot;before-you-start-this-tutorial&quot;&gt;Before you start this tutorial&lt;/h1&gt;
+&lt;p&gt;Before starting, you should :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;be familiar with &lt;a href=&quot;https://vertx.io/&quot;&gt;Eclipse Vert.x&lt;/a&gt;. If you are not, here is the &lt;a href=&quot;https://vertx.io/docs/guide-for-java-devs/&quot;&gt;guide for Java developers&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;have some basic understanding of databases. Extended knowledge of Cassandra is not required.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You also may find it useful to read &lt;a href=&quot;https://validator.w3.org/feed/docs/rss2.html&quot;&gt;the RSS 2.0&lt;/a&gt; specification, because the resulted app is, basically, a storage of RSS 2.0 feeds.&lt;/p&gt;
+&lt;p&gt;To give you an idea of what the App is about, here is how it looks like from the fronted side:&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;see how it looks&quot; src=&quot;http://vertx.io/assets/blog/the-rss-reader-tutorial/application.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;On the image we see that browser space is split into 2 parts:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Saved feed names&lt;/li&gt;
+&lt;li&gt;List of articles for the selected feed&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Here you also can enter a link to a new feed, so the App will fetch and parse the feed.
+After that, it will appear in the left column along with other saved feeds.&lt;/p&gt;
+&lt;h1 id=&quot;requirements&quot;&gt;Requirements&lt;/h1&gt;
+&lt;p&gt;For completing this tutorial you need:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Java 8 or higher&lt;/li&gt;
+&lt;li&gt;Git&lt;/li&gt;
+&lt;li&gt;1 hour of your time&lt;/li&gt;
+&lt;li&gt;You favorite code editor&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For running the example you should ensure that Cassandra service is running locally on port 9042.
+As an option, you can run Cassandra with &lt;a href=&quot;https://github.com/riptano/ccm#installation&quot;&gt;ccm&lt;/a&gt;(Cassandra Cluster Manager).
+Follow &lt;a href=&quot;https://github.com/riptano/ccm#installation&quot;&gt;this&lt;/a&gt; instructions for installing ccm.
+After installing you will be able to run a single node cluster:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;hljs bash&quot;&gt;ccm create rss_reader -v &lt;span class=&quot;hljs-number&quot;&gt;3.11&lt;/span&gt;.&lt;span class=&quot;hljs-number&quot;&gt;2&lt;/span&gt; -n &lt;span class=&quot;hljs-number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;hljs-operator&quot;&gt;-s&lt;/span&gt;
+ccm start&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For now, &lt;a href=&quot;https://github.com/vert-x3/vertx-cassandra-client&quot;&gt;Eclipse Vert.x Cassandra client&lt;/a&gt; is not available in maven central, it means that you have to build and install it locally:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;hljs bash&quot;&gt;git clone https://github.com/vert-x3/vertx-cassandra-client
+&lt;span class=&quot;hljs-built_in&quot;&gt;cd&lt;/span&gt; vertx-cassandra-client
+mvn clean install -Dmaven.test.skip=&lt;span class=&quot;hljs-literal&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;hljs-operator&quot;&gt;-s&lt;/span&gt; .travis.maven.settings.xml&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Before completing this step make sure that you have successfully cloned the RSS reader repository and checked out the &lt;code&gt;step_1&lt;/code&gt; branch:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;hljs bash&quot;&gt;git clone https://github.com/Sammers21/rss-reader
+&lt;span class=&quot;hljs-built_in&quot;&gt;cd&lt;/span&gt; rss-reader
+git checkout step_1&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now you can try to tun this example and see if it works:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;hljs bash&quot;&gt;./gradlew vertxRun&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;schema&quot;&gt;Schema&lt;/h2&gt;
+&lt;p&gt;If you are familiar with &lt;a href=&quot;http://cassandra.apache.org/&quot;&gt;Apache Cassandra&lt;/a&gt; you
+should know that the way your data is stored in Cassandra is dependent on queries
+you are running. It means that you need first to figure out what kind of queries
+you will be running, and then you can produce a storage scheme.&lt;/p&gt;
+&lt;p&gt;In our case we’d like our application to have 3 endpoints:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;POST /user/{user_id}/rss_link - for adding links to a user’s feed&lt;/li&gt;
+&lt;li&gt;GET /user/{user_id}/rss_channels - for retrieving information about RSS channels a user subscribed on&lt;/li&gt;
+&lt;li&gt;GET /articles/by_rss_link?link={rss_link} - for retrieving information about articles on a specific RSS channel&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;For implementing this endpoints the schema should look in this way:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;hljs&quot;&gt;&lt;span class=&quot;hljs-operator&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;hljs-keyword&quot;&gt;TABLE&lt;/span&gt; rss_by_user (login &lt;span class=&quot;hljs-built_in&quot;&gt;text&lt;/span&gt; , rss_link &lt;span class=&quot;hljs-built_in&quot;&gt;text&lt;/span&gt;, &lt;span class=&quot;hljs-keyword&quot;&gt;PRIMARY&lt;/span&gt; &lt;span class=&quot;hljs-keyword&quot;&gt;KEY&lt;/span&gt; (login, rss_link));&lt;/span&gt;
+&lt;span class=&quot;hljs-operator&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;hljs-keyword&quot;&gt;TABLE&lt;/span&gt; articles_by_rss_link(rss_link &lt;span class=&quot;hljs-built_in&quot;&gt;text&lt;/span&gt;, pubDate &lt;span class=&quot;hljs-keyword&quot;&gt;timestamp&lt;/span&gt;, title &lt;span class=&quot;hljs-built_in&quot;&gt;text&lt;/span&gt;, article_link &lt;span class=&quot;hljs-built_in&quot;&gt;text&lt;/span&gt;, description &lt;span class=&quot;hljs-built_in&quot;&gt;text&lt;/span&gt;, &lt;span class=&quot;hljs-keyword&quot;&gt;PRIMARY&lt;/span&gt; &lt;span class=&quot;hljs-keyword&quot;&gt;KEY&lt;/span&gt; ( rss_link , pubDate , article_link));&lt;/span&gt;
+&lt;span class=&quot;hljs-operator&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;hljs-keyword&quot;&gt;TABLE&lt;/span&gt; channel_info_by_rss_link(rss_link &lt;span class=&quot;hljs-built_in&quot;&gt;text&lt;/span&gt;, last_fetch_time &lt;span class=&quot;hljs-keyword&quot;&gt;timestamp&lt;/span&gt;,title &lt;span class=&quot;hljs-built_in&quot;&gt;text&lt;/span&gt;, site_link &lt;span class=&quot;hljs-built_in&quot;&gt;text&lt;/span&gt;, description &lt;span class=&quot;hljs-built_in&quot;&gt;text&lt;/span&gt;, &lt;span class=&quot;hljs-keyword&quot;&gt;PRIMARY&lt;/span&gt; &lt;span class=&quot;hljs-keyword&quot;&gt;KEY&lt;/span&gt;(rss_link));&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;what-to-do-in-this-step&quot;&gt;What to do in this step&lt;/h2&gt;
+&lt;p&gt;In this step we will implement only the first endpoint&lt;/p&gt;
+&lt;h2 id=&quot;project-overview&quot;&gt;Project overview&lt;/h2&gt;
+&lt;p&gt;There are two notable classes in the project: &lt;code&gt;AppVerticle&lt;/code&gt; and &lt;code&gt;FetchVerticle&lt;/code&gt;. The first one is a &lt;a href=&quot;https://vertx.io/docs/vertx-core/java/#_verticles&quot;&gt;Verticle&lt;/a&gt; responsible for HTTP request handling and storage schema initialization. The second one is a &lt;a href=&quot;https://vertx.io/docs/vertx-core/java/#_verticles&quot;&gt;Verticle&lt;/a&gt; as well, but responsible for RSS feeds fetching.&lt;/p&gt;
+&lt;p&gt;The idea is simple. When the application is starting the &lt;code&gt;AppVerticle&lt;/code&gt; is deployed, then it tries to initialize storage schema, described in &lt;code&gt;src/main/resources/schema.cql&lt;/code&gt; file by reading it and executing listed queries line by line. After the schema initialization the &lt;code&gt;AppVerticle&lt;/code&gt; deploys &lt;code&gt;FetchVerticle&lt;/code&gt; and starts a HTTP server.&lt;/p&gt;
+&lt;h2 id=&quot;implementing-the-endpoint&quot;&gt;Implementing the endpoint&lt;/h2&gt;
+&lt;p&gt;Now, it is time to implement the first endpoint. Pay attention to &lt;code&gt;TODO&lt;/code&gt;s, they are for pointing you out about where changes should be made.&lt;/p&gt;
+&lt;p&gt;Now, let’s have a look at the &lt;code&gt;AppVerticle#postRssLink&lt;/code&gt; method. This method is called each time the first endpoint is called, so we can figure out what is the posted body and id of the user, who performed the request, directly there. There are 2 main things we want to do in this method:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Notifying via the &lt;a href=&quot;https://vertx.io/docs/vertx-core/java/#event_bus&quot;&gt;Event Bus&lt;/a&gt; the &lt;code&gt;FetchVerticle&lt;/code&gt; to fetch given by user link link to an RSS feed.&lt;/li&gt;
+&lt;li&gt;Inserting an entry to the &lt;code&gt;rss_by_user&lt;/code&gt; table.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This is how the &lt;code&gt;AppVerticle#postRssLink&lt;/code&gt; method should be implemented:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;hljs java&quot;&gt;&lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;hljs-keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;postRssLink&lt;/span&gt;&lt;span class=&quot;hljs-params&quot;&gt;(RoutingContext ctx)&lt;/span&gt; &lt;/span&gt;{
+    ctx.request().bodyHandler(body -&amp;gt; {
+        JsonObject bodyAsJson = body.toJsonObject();
+        String link = bodyAsJson.getString(&lt;span class=&quot;hljs-string&quot;&gt;&quot;link&quot;&lt;/span&gt;);
+        String userId = ctx.request().getParam(&lt;span class=&quot;hljs-string&quot;&gt;&quot;user_id&quot;&lt;/span&gt;);
+        &lt;span class=&quot;hljs-keyword&quot;&gt;if&lt;/span&gt; (link == &lt;span class=&quot;hljs-keyword&quot;&gt;null&lt;/span&gt; || userId == &lt;span class=&quot;hljs-keyword&quot;&gt;null&lt;/span&gt;) {
+            responseWithInvalidRequest(ctx);
+        } &lt;span class=&quot;hljs-keyword&quot;&gt;else&lt;/span&gt; {
+            vertx.eventBus().send(&lt;span class=&quot;hljs-string&quot;&gt;&quot;fetch.rss.link&quot;&lt;/span&gt;, link);
+            Future future = Future.future();
+            BoundStatement query = insertNewLinkForUser.bind(userId, link);
+            client.execute(query, future);
+            future.setHandler(result -&amp;gt; {
+                &lt;span class=&quot;hljs-keyword&quot;&gt;if&lt;/span&gt; (result.succeeded()) {
+                    ctx.response().end(&lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; JsonObject().put(&lt;span class=&quot;hljs-string&quot;&gt;&quot;message&quot;&lt;/span&gt;, &lt;span class=&quot;hljs-string&quot;&gt;&quot;The feed just added&quot;&lt;/span&gt;).toString());
+                } &lt;span class=&quot;hljs-keyword&quot;&gt;else&lt;/span&gt; {
+                    ctx.response().setStatusCode(&lt;span class=&quot;hljs-number&quot;&gt;400&lt;/span&gt;).end(result.cause().getMessage());
+                }
+            });
+        }
+    });
+}
+
+&lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;hljs-keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;responseWithInvalidRequest&lt;/span&gt;&lt;span class=&quot;hljs-params&quot;&gt;(RoutingContext ctx)&lt;/span&gt; &lt;/span&gt;{
+    ctx.response()
+            .setStatusCode(&lt;span class=&quot;hljs-number&quot;&gt;400&lt;/span&gt;)
+            .putHeader(&lt;span class=&quot;hljs-string&quot;&gt;&quot;content-type&quot;&lt;/span&gt;, &lt;span class=&quot;hljs-string&quot;&gt;&quot;application/json; charset=utf-8&quot;&lt;/span&gt;)
+            .end(invalidRequest().toString());
+}
+
+&lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;private&lt;/span&gt; JsonObject &lt;span class=&quot;hljs-title&quot;&gt;invalidRequest&lt;/span&gt;&lt;span class=&quot;hljs-params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;{
+    &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;JsonObject&lt;/span&gt;&lt;span class=&quot;hljs-params&quot;&gt;()&lt;/span&gt;.&lt;span class=&quot;hljs-title&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;hljs-params&quot;&gt;(&lt;span class=&quot;hljs-string&quot;&gt;&quot;message&quot;&lt;/span&gt;, &lt;span class=&quot;hljs-string&quot;&gt;&quot;Invalid request&quot;&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;;
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You may notice that &lt;code&gt;insertNewLinkForUser&lt;/code&gt; is a &lt;code&gt;PreparedStatement&lt;/code&gt;, and should be initialized before the &lt;code&gt;AppVerticle&lt;/code&gt; start. Let’s do it in the &lt;code&gt;AppVerticle#prepareNecessaryQueries&lt;/code&gt; method:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;hljs java&quot;&gt;&lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;private&lt;/span&gt; Future &lt;span class=&quot;hljs-title&quot;&gt;prepareNecessaryQueries&lt;/span&gt;&lt;span class=&quot;hljs-params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;{
+    Future insertNewLinkForUserPrepFuture = Future.future();
+    client.prepare(&lt;span class=&quot;hljs-string&quot;&gt;&quot;INSERT INTO rss_by_user (login , rss_link ) VALUES ( ?, ?);&quot;&lt;/span&gt;, insertNewLinkForUserPrepFuture);
+
+    &lt;span class=&quot;hljs-keyword&quot;&gt;return&lt;/span&gt; insertNewLinkForUserPrepFuture.compose(preparedStatement -&amp;gt; {
+        insertNewLinkForUser = preparedStatement;
+        &lt;span class=&quot;hljs-keyword&quot;&gt;return&lt;/span&gt; Future.succeededFuture();
+    });
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Also, we should not forget to fetch a RSS by the link sent to &lt;code&gt;FetchVerticle&lt;/code&gt; via the Event Bus. We can do it in the &lt;code&gt;FetchVerticle#startFetchEventBusConsumer&lt;/code&gt; method:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;hljs java&quot;&gt;vertx.eventBus().localConsumer(&lt;span class=&quot;hljs-string&quot;&gt;&quot;fetch.rss.link&quot;&lt;/span&gt;, message -&amp;gt; {
+    String rssLink = (String) message.body();
+    log.info(&lt;span class=&quot;hljs-string&quot;&gt;&quot;fetching &quot;&lt;/span&gt; + rssLink);
+    webClient.getAbs(rssLink).send(response -&amp;gt; {
+        &lt;span class=&quot;hljs-keyword&quot;&gt;if&lt;/span&gt; (response.succeeded()) {
+            String bodyAsString = response.result().bodyAsString(&lt;span class=&quot;hljs-string&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;);
+            &lt;span class=&quot;hljs-keyword&quot;&gt;try&lt;/span&gt; {
+                RssChannel rssChannel = &lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; RssChannel(bodyAsString);
+
+                BatchStatement batchStatement = &lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; BatchStatement();
+                BoundStatement channelInfoInsertQuery = insertChannelInfo.bind(
+                        rssLink, &lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; Date(System.currentTimeMillis()), rssChannel.description, rssChannel.link, rssChannel.title
+                );
+                batchStatement.add(channelInfoInsertQuery);
+
+                &lt;span class=&quot;hljs-keyword&quot;&gt;for&lt;/span&gt; (Article article : rssChannel.articles) {
+                    batchStatement.add(insertArticleInfo.bind(rssLink, article.pubDate, article.link, article.description, article.title));
+                }
+                Future insertArticlesFuture = Future.future();
+                cassandraClient.execute(batchStatement, insertArticlesFuture);
+
+                insertArticlesFuture.compose(insertDone -&amp;gt; Future.succeededFuture());
+            } &lt;span class=&quot;hljs-keyword&quot;&gt;catch&lt;/span&gt; (Exception e) {
+                log.error(&lt;span class=&quot;hljs-string&quot;&gt;&quot;Unable to fetch: &quot;&lt;/span&gt; + rssLink, e);
+            }
+        } &lt;span class=&quot;hljs-keyword&quot;&gt;else&lt;/span&gt; {
+            log.error(&lt;span class=&quot;hljs-string&quot;&gt;&quot;Unable to fetch: &quot;&lt;/span&gt; + rssLink);
+        }
+    });
+});&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And, finally, this code would not work if &lt;code&gt;insertChannelInfo&lt;/code&gt; and &lt;code&gt;insertArticleInfo&lt;/code&gt; statements will not be initialized at verticle start. Let’s to this in the &lt;code&gt;FetchVerticle#prepareNecessaryQueries&lt;/code&gt; method:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;hljs java&quot;&gt;&lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;private&lt;/span&gt; Future &lt;span class=&quot;hljs-title&quot;&gt;prepareNecessaryQueries&lt;/span&gt;&lt;span class=&quot;hljs-params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;{
+        Future insertChannelInfoPrepFuture = Future.future();
+        cassandraClient.prepare(&lt;span class=&quot;hljs-string&quot;&gt;&quot;INSERT INTO channel_info_by_rss_link ( rss_link , last_fetch_time, description , site_link , title ) VALUES (?, ?, ?, ?, ?);&quot;&lt;/span&gt;, insertChannelInfoPrepFuture);
+
+        Future insertArticleInfoPrepFuture = Future.future();
+        cassandraClient.prepare(&lt;span class=&quot;hljs-string&quot;&gt;&quot;INSERT INTO articles_by_rss_link ( rss_link , pubdate , article_link , description , title ) VALUES ( ?, ?, ?, ?, ?);&quot;&lt;/span&gt;, insertArticleInfoPrepFuture);
+
+        &lt;span class=&quot;hljs-keyword&quot;&gt;return&lt;/span&gt; CompositeFuture.all(
+                insertChannelInfoPrepFuture.compose(preparedStatement -&amp;gt; {
+                    insertChannelInfo = preparedStatement;
+                    &lt;span class=&quot;hljs-keyword&quot;&gt;return&lt;/span&gt; Future.succeededFuture();
+                }), insertArticleInfoPrepFuture.compose(preparedStatement -&amp;gt; {
+                    insertArticleInfo = preparedStatement;
+                    &lt;span class=&quot;hljs-keyword&quot;&gt;return&lt;/span&gt; Future.succeededFuture();
+                })
+        ).mapEmpty();
+    }&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;h1 id=&quot;observing&quot;&gt;Observing&lt;/h1&gt;
+&lt;p&gt;After all this changes you should ensure that the first endpoint is working correctly. So you need to run the application, go to localhost:8080 insert a link to a rss feed there(&lt;a href=&quot;http://feeds.bbci.co.uk/news/uk/rss.xml&quot;&gt;BBC UK feed news&lt;/a&gt; for example) and then click the &lt;em&gt;ENTER&lt;/em&gt; button. Now you can connect to your local Cassandra instance, for instance with &lt;a href=&quot;https://docs.datastax.com/en/cql/3.3/cql/cql_reference/cqlsh.html&quot;&gt;cqlsh&lt;/a&gt;, and find out how RSS feed data had been saved in the rss_reader keyspace:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;hljs sh&quot;&gt;cqlsh&amp;gt; SELECT * FROM rss_reader.rss_by_user limit &lt;span class=&quot;hljs-number&quot;&gt;1&lt;/span&gt;  ;
+
+ login | rss_link
+-------+-----------------------------------------
+ Pavel | http://feeds.bbci.co.uk/news/uk/rss.xml
+
+(&lt;span class=&quot;hljs-number&quot;&gt;1&lt;/span&gt; rows)
+cqlsh&amp;gt; SELECT description FROM rss_reader.articles_by_rss_link  limit &lt;span class=&quot;hljs-number&quot;&gt;1&lt;/span&gt;;
+
+ description
+-------------------------------------
+ BBC coverage of latest developments
+
+(&lt;span class=&quot;hljs-number&quot;&gt;1&lt;/span&gt; rows)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;In this article we figured out how to implement the first endpoint of RSS-reader app. If you have any problems with completing this step you can checkout to &lt;code&gt;step_2&lt;/code&gt;, where you can find all changes made for completing this step:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;hljs bash&quot;&gt;git checkout step_2&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;Thanks for reading this. I hope you enjoyed reading this article. See you soon on our &lt;a href=&quot;https://gitter.im/eclipse-vertx/vertx-users&quot;&gt;Gitter channel&lt;/a&gt;!&lt;/p&gt;
+&lt;/article&gt;</description>
+	<pubDate>Mon, 20 Aug 2018 00:00:00 +0000</pubDate>
+</item>
+<item>
+	<title>JBoss Tools Team: Integration Tooling for Eclipse Photon</title>
+	<guid isPermaLink="true">https://tools.jboss.org/blog/integration-stack-4.6.0.Final.html</guid>
+	<link>https://tools.jboss.org/blog/integration-stack-4.6.0.Final.html</link>
+	<description>&lt;div&gt;&lt;div id=&quot;preamble&quot;&gt;
+      &lt;div class=&quot;sectionbody&quot;&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;&lt;strong&gt;Try our leaner, complete Eclipse Photon and Red Hat Developer Studio 12 compatible integration tooling.&lt;/strong&gt;&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;imageblock&quot;&gt;
+      &lt;div class=&quot;content&quot;&gt;
+      &lt;img alt=&quot;devstudio12&quot; src=&quot;https://tools.jboss.org/blog/images/devstudio12.png&quot; /&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;&lt;strong&gt;JBoss Tools Integration Stack 4.6.0.Final / Red Hat Developer Studio Integration Stack 12.0.0.GA&lt;/strong&gt;&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;admonitionblock note&quot;&gt;
+      &lt;table&gt;
+      &lt;tbody&gt;&lt;tr&gt;
+      &lt;td class=&quot;icon&quot;&gt;
+      &lt;i class=&quot;fa icon-note&quot; title=&quot;Note&quot;&gt;&lt;/i&gt;
+      &lt;/td&gt;
+      &lt;td class=&quot;content&quot;&gt;
+      All of the Integration Stack components have been verified to work with the same dependencies as JBoss Tools 4.6 and Red Hat Developer Studio 12.
+      &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;/tbody&gt;&lt;/table&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;sect1&quot;&gt;
+      &lt;h2 id=&quot;what-s-new-for-this-release&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#what-s-new-for-this-release&quot;&gt;&lt;/a&gt;What’s new for this release?&lt;/h2&gt;
+      &lt;div class=&quot;sectionbody&quot;&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;This is the initial release in support of Eclipse Photon.  It syncs up with Developer Studio 12.0.0, JBoss Tools 4.6.0 and Eclipse 4.8.0 (Photon).  It is also a maintenance release for Teiid Designer and BRMS tooling.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;sect2&quot;&gt;
+      &lt;h3 id=&quot;released-tooling-highlights&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#released-tooling-highlights&quot;&gt;&lt;/a&gt;Released Tooling Highlights&lt;/h3&gt;
+      &lt;div class=&quot;sect3&quot;&gt;
+      &lt;h4 id=&quot;business-process-and-rules-development&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#business-process-and-rules-development&quot;&gt;&lt;/a&gt;Business Process and Rules Development&lt;/h4&gt;
+      &lt;div class=&quot;sect4&quot;&gt;
+      &lt;h5 id=&quot;bpmn2-modeler-known-issues&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#bpmn2-modeler-known-issues&quot;&gt;&lt;/a&gt;BPMN2 Modeler Known Issues&lt;/h5&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;See the &lt;a href=&quot;https://access.redhat.com/documentation/en-us/red_hat_jboss_developer_studio_integration_stack/12.0/html/12.0.0_release_notes_and_known_issues/resolved_issues#bpmn2_1_5_0_final&quot;&gt;BPMN2 1.5.0.Final Known Issues Section&lt;/a&gt; of the Integration Stack 12.0.0.GA release notes.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;sect4&quot;&gt;
+      &lt;h5 id=&quot;drools-jbpm6-known-issues&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#drools-jbpm6-known-issues&quot;&gt;&lt;/a&gt;Drools/jBPM6 Known Issues&lt;/h5&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;See the &lt;a href=&quot;https://access.redhat.com/documentation/en-us/red_hat_jboss_developer_studio_integration_stack/12.0/html/12.0.0_release_notes_and_known_issues/resolved_issues#drools_7_8_0_final&quot;&gt;Drools 7.8.0.Final Known Issues Section&lt;/a&gt; of the Integration Stack 12.0.0.GA release notes.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;sect3&quot;&gt;
+      &lt;h4 id=&quot;data-virtualization-highlights&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#data-virtualization-highlights&quot;&gt;&lt;/a&gt;Data Virtualization Highlights&lt;/h4&gt;
+      &lt;div class=&quot;sect4&quot;&gt;
+      &lt;h5 id=&quot;teiid-designer&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#teiid-designer&quot;&gt;&lt;/a&gt;Teiid Designer&lt;/h5&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;See the &lt;a href=&quot;https://access.redhat.com/documentation/en-us/red_hat_jboss_developer_studio_integration_stack/12.0/html/12.0.0_release_notes_and_known_issues/resolved_issues#teiid_designer_11_2_0_final&quot;&gt;Teiid Designer 11.2.0.Final Resolved Issues Section&lt;/a&gt; of the Integration Stack 12.0.0.GA release notes.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;sect1&quot;&gt;
+      &lt;h2 id=&quot;what-s-an-integration-stack&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#what-s-an-integration-stack&quot;&gt;&lt;/a&gt;What’s an Integration Stack?&lt;/h2&gt;
+      &lt;div class=&quot;sectionbody&quot;&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;Red Hat Developer Studio Integration Stack is a set of Eclipse-based development tools. It further enhances the IDE functionality provided by Developer Studio, with plug-ins specifically for use when developing for other Red Hat products.  It’s where DataVirt Tooling and BRMS tooling are aggregated.  The following frameworks are supported:&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;sect2&quot;&gt;
+      &lt;h3 id=&quot;red-hat-business-process-and-rules-development&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#red-hat-business-process-and-rules-development&quot;&gt;&lt;/a&gt;Red Hat Business Process and Rules Development&lt;/h3&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;Business Process and Rules Development plug-ins provide design, debug and testing tooling for developing business processes for Red Hat BRMS and Red Hat BPM Suite.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;ulist&quot;&gt;
+      &lt;ul&gt;
+      &lt;li&gt;
+      &lt;p&gt;&lt;a href=&quot;https://tools.jboss.org/features/bpel.html&quot;&gt;BPEL Designer&lt;/a&gt; - Orchestrating your business processes.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      &lt;p&gt;&lt;a href=&quot;https://tools.jboss.org/features/bpmn2.html&quot;&gt;BPMN2 Modeler&lt;/a&gt; - A graphical modeling tool which allows creation and editing of Business Process Modeling Notation diagrams using graphiti.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      &lt;p&gt;&lt;a href=&quot;https://tools.jboss.org/features/drools.html&quot;&gt;Drools&lt;/a&gt; - A Business Logic integration Platform which provides a unified and integrated platform for Rules, Workflow and Event Processing including KIE.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      &lt;p&gt;&lt;a href=&quot;https://tools.jboss.org/features/jbpm.html&quot;&gt;jBPM&lt;/a&gt; - A flexible Business Process Management (BPM) suite.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;sect2&quot;&gt;
+      &lt;h3 id=&quot;red-hat-data-virtualization-development&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#red-hat-data-virtualization-development&quot;&gt;&lt;/a&gt;Red Hat Data Virtualization Development&lt;/h3&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;Red Hat Data Virtualization Development plug-ins provide a graphical interface to manage various aspects of Red Hat Data Virtualization instances, including the ability to design virtual databases and interact with associated governance repositories.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;ulist&quot;&gt;
+      &lt;ul&gt;
+      &lt;li&gt;
+      &lt;p&gt;&lt;a href=&quot;https://tools.jboss.org/features/teiiddesigner.html&quot;&gt;Teiid Designer&lt;/a&gt; - A visual tool that enables rapid, model-driven definition, integration, management and testing of data services without programming using the Teiid runtime framework.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;sect2&quot;&gt;
+      &lt;h3 id=&quot;the-jboss-tools-website-features-tab&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#the-jboss-tools-website-features-tab&quot;&gt;&lt;/a&gt;The JBoss Tools website features tab&lt;/h3&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;Don’t miss the &lt;a href=&quot;https://tools.jboss.org/features&quot;&gt;Features tab&lt;/a&gt; for up to date information on your favorite Integration Stack components.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;sect1&quot;&gt;
+      &lt;h2 id=&quot;installation&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#installation&quot;&gt;&lt;/a&gt;Installation&lt;/h2&gt;
+      &lt;div class=&quot;sectionbody&quot;&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;The easiest way to install the Integration Stack components is through the &lt;a href=&quot;https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&amp;amp;product=jbossdeveloperstudio&amp;amp;version=12.0.0&quot;&gt;stand-alone installer&lt;/a&gt; or through our &lt;a href=&quot;http://tools.jboss.org/downloads/overview.html&quot;&gt;JBoss Tools Download Site&lt;/a&gt;.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;For a complete set of Integration Stack installation instructions, see &lt;a href=&quot;https://access.redhat.com/documentation/en-us/red_hat_jboss_developer_studio_integration_stack/12.0/html/installation_guide/&quot;&gt;Integration Stack Installation Guide&lt;/a&gt;&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;&lt;em&gt;Let us know how it goes!&lt;/em&gt;&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;Paul Leacu.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;&lt;/div&gt;</description>
+	<pubDate>Tue, 14 Aug 2018 14:55:52 +0000</pubDate>
+</item>
+<item>
+	<title>Eclipse Ditto: Announcing Ditto Milestone 0.8.0-M1</title>
+	<guid isPermaLink="true">https://www.eclipse.org/ditto/2018-08-14-milestone-announcement-080-M1.html</guid>
+	<link>https://www.eclipse.org/ditto/2018-08-14-milestone-announcement-080-M1.html</link>
+	<description>&lt;p&gt;Even during the summer break the Ditto team worked hard in order to provide the next milestone release. Here it is: 
+Milestone 0.8.0-M1.&lt;/p&gt;
+
+&lt;p&gt;Have a look at the Milestone &lt;a href=&quot;https://www.eclipse.org/ditto/release_notes_080-M1.html&quot;&gt;0.8.0-M1 release notes&lt;/a&gt; for what changed in detail and why
+there was a version bump from 0.3.0-M2 to 0.8.0-M1.&lt;/p&gt;
+
+&lt;p&gt;The main changes and new features are&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;security enhancement by making some of Ditto’s headers not settable from the outside&lt;/li&gt;
+  &lt;li&gt;report application metrics to Prometheus&lt;/li&gt;
+  &lt;li&gt;automatically form a cluster when running in Kubernetes&lt;/li&gt;
+  &lt;li&gt;improvement of Ditto’s &lt;code class=&quot;highlighter-rouge&quot;&gt;things-service&lt;/code&gt; memory consumption&lt;/li&gt;
+  &lt;li&gt;stabilization of the connectivity to AMQP 1.0 and 0.9.1&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;artifacts&quot;&gt;Artifacts&lt;/h2&gt;
+
+&lt;p&gt;The new Java artifacts have been published at the &lt;a href=&quot;https://repo.eclipse.org/content/repositories/ditto/&quot;&gt;Eclipse Maven repository&lt;/a&gt;
+as well as &lt;a href=&quot;https://repo1.maven.org/maven2/org/eclipse/ditto/&quot;&gt;Maven central&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The Docker images have been pushed to Docker Hub:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://hub.docker.com/r/eclipse/ditto-policies/&quot;&gt;eclipse/ditto-policies&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://hub.docker.com/r/eclipse/ditto-things/&quot;&gt;eclipse/ditto-things&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://hub.docker.com/r/eclipse/ditto-things-search/&quot;&gt;eclipse/ditto-things-search&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://hub.docker.com/r/eclipse/ditto-gateway/&quot;&gt;eclipse/ditto-gateway&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://hub.docker.com/r/eclipse/ditto-connectivity/&quot;&gt;eclipse/ditto-connectivity&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://hub.docker.com/r/eclipse/ditto-concierge/&quot;&gt;eclipse/ditto-concierge&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;figure&gt;&lt;img alt=&quot;Ditto&quot; class=&quot;docimage&quot; src=&quot;https://www.eclipse.org/ditto/images/ditto.svg&quot; /&gt;&lt;/figure&gt;
+
+&lt;p&gt;–&lt;br /&gt;
+The Eclipse Ditto team&lt;/p&gt;</description>
+	<pubDate>Tue, 14 Aug 2018 04:00:00 +0000</pubDate>
+</item>
+<item>
+	<title>Maximilian and Jonas: EMF Forms 1.17.0 Feature: Table Detail Panes</title>
+	<guid isPermaLink="false">https://eclipsesource.com/?p=39783</guid>
+	<link>https://eclipsesource.com/blogs/2018/08/10/emf-forms-1-17-0-feature-table-detail-panes/</link>
+	<description>&lt;p&gt;&lt;a href=&quot;https://www.eclipse.org/ecp/emfforms/&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;EMF Forms&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt; makes it easy to create forms that are capable of editing your data based on an EMF model. To get started with EMF Forms please refer to &lt;/span&gt;&lt;a href=&quot;http://eclipsesource.com/blogs/tutorials/getting-started-with-EMF-Forms/&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;our tutorial&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;. If you are an adopter of EMF Forms, please note, that &lt;/span&gt;&lt;b&gt;we have recently published 1.17.1 an update to 1.17.0. &lt;/b&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;The update fixes three bugs which occurred if you use EMF Forms in Photon. Please see &lt;/span&gt;&lt;a href=&quot;https://projects.eclipse.org/projects/modeling.ecp/releases/1.17.1&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;here&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt; for details and &lt;/span&gt;&lt;a href=&quot;http://www.eclipse.org/ecp/emfforms/download.html&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;our download page&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt; to get the new release.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;In this post, we would like to outline a new feature in the 1.17.0 release: &lt;/span&gt;&lt;b&gt;The improved table detail panes&lt;/b&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;While EMF Forms is well known to support form-based UIs with classic input fields, such as text controls or checkboxes, it also supports showing list of elements in tables and list views, as well as hierarchies in trees.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;As an example, you can very easily create a tree like this:&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;EMF Forms 1.17.0 Feature: Table Detail Panes&quot; class=&quot;alignnone wp-image-39784 size-full&quot; height=&quot;228&quot; src=&quot;https://eclipsesource.com/wp-content/uploads/2018/07/image38.png&quot; width=&quot;1298&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Or a table like this:&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;EMF Forms 1.17.0 Feature: Table Detail Panes&quot; class=&quot;alignnone wp-image-39785 size-full&quot; height=&quot;137&quot; src=&quot;https://eclipsesource.com/wp-content/uploads/2018/07/image36.png&quot; width=&quot;1301&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;With 1.17.0, we have updated the documentation, please see &lt;/span&gt;&lt;a href=&quot;https://eclipsesource.com/blogs/tutorials/emf-forms-view-model-elements/#tablecontrol&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;this tutorial for tables&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt; and &lt;/span&gt;&lt;a href=&quot;https://eclipsesource.com/blogs/tutorials/emf-forms-view-model-elements/#treemasterdetail&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;this tutorial for tree view&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Any element showing several elements can allow inline editing (like the EMF Forms table does), or show a detail pane (like the tree does), or both. As an example, if elements shown in a table have many attributes, you could show some of them in the table and then all of them in a detail pane. To do so, just enable the detail pane on the TableControl in the view model:&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;EMF Forms 1.17.0 Feature: Table Detail Panes&quot; class=&quot;alignnone wp-image-39786 size-full&quot; height=&quot;42&quot; src=&quot;https://eclipsesource.com/wp-content/uploads/2018/07/image50.png&quot; width=&quot;547&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;The result, after removing most columns from the table would then look like this:&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;EMF Forms 1.17.0 Feature: Table Detail Panes&quot; class=&quot;alignnone wp-image-39787 size-full&quot; height=&quot;457&quot; src=&quot;https://eclipsesource.com/wp-content/uploads/2018/07/image48.png&quot; width=&quot;844&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Alternatively, you can set the DetailEditing property to “WithDialog”. As a result the renderer opens a separate window showing the details on double clicking an element. With 1.17.0, both options are supported by all table renderers, including the &lt;/span&gt;&lt;a href=&quot;https://eclipsesource.com/blogs/2017/01/02/emf-forms-1-11-0-feature-grid-table-and-more/&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;table renderer based on Nebula Grid&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;. &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;You might wonder, where the layout of the detailed pane comes from. This detail itself is rendered with EMF Forms. Therefore, the framework retrieves the view model for the selected element, such that, if you already have a view model for the type “User”, it will be used in the detail pane as well. For this to work, you need to register the view model with EMF Forms by default, via an extension point.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Another minor improvement, which comes with 1.17.0 is that you can also try out those detail panes with a separate view model in the preview provided by the EMF Forms tooling. Therefore, you can add those additional view models to the preview using the “Manage Additional Views” button in the toolbar of the preview.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;EMF Forms 1.17.0 Feature: Table Detail Panes&quot; class=&quot;alignnone wp-image-39788 size-full&quot; height=&quot;300&quot; src=&quot;https://eclipsesource.com/wp-content/uploads/2018/07/image9.png&quot; width=&quot;580&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Any view model added here will be picked up by the preview when a detail pane is to be rendered.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;As for all EMF Forms features, the detail panes of the respective tooling is of course adaptable to even more custom requirements. If there are any features you miss or ways you wish to adapt it, please provide feedback by &lt;/span&gt;&lt;a href=&quot;https://bugs.eclipse.org/bugs/enter_bug.cgi?product=ecp&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;submitting bugs or feature requests&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt; or &lt;/span&gt;&lt;a href=&quot;mailto:munich@eclipsesource.com&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;contact us&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt; if you are interested in enhancements or support.&lt;/span&gt;&lt;/p&gt;</description>
+	<pubDate>Fri, 10 Aug 2018 10:06:17 +0000</pubDate>
+</item>
+<item>
+	<title>Andrey Loskutov: We are hiring 2 Eclipse developers</title>
+	<guid isPermaLink="false">tag:blogger.com,1999:blog-342159971341432126.post-4266215239435919015</guid>
+	<link>http://javaclipse.blogspot.com/2018/08/we-are-hiring-2-eclipse-developers.html</link>
+	<description>&lt;div dir=&quot;ltr&quot; style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;https://www.advantest.com/en/about-advantest/about-advantest-europe&quot;&gt;We&lt;/a&gt; are hiring again!&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;https://www.advantest.com/en/about-advantest/about-advantest-europe&quot;&gt;We&lt;/a&gt; have 2 opened positions for Eclipse developers in &lt;a href=&quot;https://goo.gl/maps/FgrdmJnCh8T2&quot;&gt;our main office&lt;/a&gt; in Böblingen, Germany (no, it is not a remote job).&lt;br /&gt;&lt;br /&gt;The job focus is Java/Eclipse development in the context of the very complex Eclipse based IDE used as the front end for the semiconductor tester.&lt;br /&gt;&lt;br /&gt;We speak English and Java here, if you are interested, just drop me a mail.&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;</description>
+	<pubDate>Thu, 09 Aug 2018 12:47:58 +0000</pubDate>
+	<author>noreply@blogger.com (Andrey Loskutov)</author>
+</item>
+<item>
+	<title>Maximilian and Jonas: Modeling Symposium @ EclipseCon Europe 2018</title>
+	<guid isPermaLink="false">https://eclipsesource.com/?p=39797</guid>
+	<link>https://eclipsesource.com/blogs/2018/08/08/modeling-symposium-eclipsecon-europe-2018/</link>
+	<description>&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;We are happy to announce that Ed, Philip and Jonas are organizing the Modeling Symposium for the &lt;a href=&quot;https://www.eclipsecon.org/europe2018&quot;&gt;EclipseCon Europe 2018 in Ludwigsburg&lt;/a&gt;. The symposium aims to provide a forum for community members to present a brief overview of their work. We offer 10 minute lightning slots (including set-up and questions) to facilitate a broad range of speakers. The primary goal is to introduce interesting, new technological features. This targets mainly modeling projects which are otherwise not represented at the conference.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;If you are interested in giving a talk, please send a short description (a few sentences) to munich@eclipsesource.com. Depending on the number, we might have to select among the submissions. &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Deadline for submission: Wednesday, September 5th, 2018&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Acceptance/ Decline notification: Monday, September 10th, 2018&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Please adhere to the following guidelines:&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li style=&quot;font-weight: 400;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Please provide sufficient context. Talks should start with a concise overview of what the presenter plans to demonstrate, or what a certain framework offers.  Even more important, explain how and why this is relevant.&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot;font-weight: 400;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Do not bore us! Get to the point quickly.  You do not have to use all your allocation. An interesting 3 minute talk will have a bigger impact than a boring 10 minute talk. We encourage you to plan for a 5 minute talk, leaving room for 5 minutes of discussion.&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot;font-weight: 400;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Keep it short and sweet, focus on the most important aspects. A conference offers the major advantage of getting in contact with people who are interested in your work. So consider the talk more as a teaser to prompt follow-up conversations than a forum to demonstrate or discuss technical details in depth.&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot;font-weight: 400;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;A demo is worth a thousand slides. We prefer to see how your stuff works rather than be told about how it works with illustrative slides.  Please restrict the slides to summarize your introduction or conclusion.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Looking forward to your submissions!&lt;/span&gt;&lt;/p&gt;</description>
+	<pubDate>Wed, 08 Aug 2018 11:45:27 +0000</pubDate>
+</item>
+<item>
+	<title>Tom Schindl: Supporting OpenJFX 11 from JDK11 onwards in e(fx)clipse</title>
+	<guid isPermaLink="false">http://tomsondev.bestsolution.at/?p=5116</guid>
+	<link>https://tomsondev.bestsolution.at/2018/08/04/supporting-openjfx-11-from-jdk11-onwards-in-efxclipse/</link>
+	<description>&lt;p&gt;So starting with JDK-11 OpenJFX is not part of any downloadable distribution. As JavaFX is designed to run on the module-path (and tested only there) you have 2 options to run JavaFX inside OSGi:&lt;br /&gt;
+* You create your own JDK-Distribution using jlink&lt;br /&gt;
+* You launch the VM you want to use JavaFX adding the JavaFX-Modules&lt;/p&gt;
+&lt;p&gt;While the 2nd solution is doable for RCP-Applications it is less than a nice one, and for integrating into external frameworks (like the Eclipse IDE) it is not possible at all. So we need a different solution to satisfy both usecases.&lt;/p&gt;
+&lt;p&gt;The solution to this problem is that e(fx)clipse installs a classloader hook using the Equinox AdapterHook-Framework (you can do crazy stuff with that) and on the fly spins up a new Java-Module-Layer containing all the JavaFX-Modules and uses the classloader from the Module-Layer to load the JavaFX-Classes.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://tomsondev.bestsolution.at/2018/08/04/supporting-openjfx-11-from-jdk11-onwards-in-efxclipse/open-jfx-11/&quot; rel=&quot;attachment wp-att-5117&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;alignnone size-full wp-image-5117&quot; height=&quot;400&quot; src=&quot;https://tomsondev.files.wordpress.com/2018/08/open-jfx-11.png?w=640&amp;amp;h=400&quot; width=&quot;640&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;With this strategy you can supply the JavaFX-Modules (including the native bits) required for your application to run as part of your p2-repository.&lt;/p&gt;</description>
+	<pubDate>Sat, 04 Aug 2018 21:42:56 +0000</pubDate>
+</item>
+<item>
+	<title>Mikael Barbero: Hi Hauke. Actually, this is happening.</title>
+	<guid isPermaLink="false">https://medium.com/p/f56b35477824</guid>
+	<link>https://medium.com/@mikael.barbero/hi-hauke-actually-this-is-happening-f56b35477824?source=rss-4a3bd8487ad8------2</link>
+	<description>&lt;p&gt;Hi Hauke. Actually, this is happening. See &lt;a href=&quot;https://bugs.eclipse.org/bugs/show_bug.cgi?id=405031&quot;&gt;https://bugs.eclipse.org/bugs/show_bug.cgi?id=405031&lt;/a&gt; (especially &lt;a href=&quot;https://bugs.eclipse.org/bugs/show_bug.cgi?id=405031#c59&quot;&gt;https://bugs.eclipse.org/bugs/show_bug.cgi?id=405031#c59&lt;/a&gt;).&lt;/p&gt;&lt;p&gt;Cheers.&lt;/p&gt;&lt;img height=&quot;1&quot; src=&quot;https://medium.com/_/stat?event=post.clientViewed&amp;amp;referrerSource=full_rss&amp;amp;postId=f56b35477824&quot; width=&quot;1&quot; /&gt;</description>
+	<pubDate>Fri, 03 Aug 2018 06:58:23 +0000</pubDate>
+</item>
+<item>
+	<title>Christopher Guindon: New improvements to the Eclipse Packaging website</title>
+	<guid isPermaLink="true">https://www.chrisguindon.com/post/eclipse-epp-website-improvements/</guid>
+	<link>https://www.chrisguindon.com/post/eclipse-epp-website-improvements/</link>
+	<description>&lt;p&gt;In my previous &lt;a href=&quot;https://www.chrisguindon.com/post/quicksilver-eclipse-org-redesign/&quot;&gt;blog post&lt;/a&gt;, we announced a new look and feel for the Eclipse Foundation website. The &lt;a href=&quot;https://www.chrisguindon.com/post/quicksilver-eclipse-org-redesign/#future-plans&quot;&gt;plan&lt;/a&gt; was to roll out our new design to &lt;a href=&quot;https://www.eclipse.org&quot;&gt;eclipse.org&lt;/a&gt; first and then gradually migrate our other web properties.&lt;/p&gt;
+
+&lt;p&gt;Since then, we migrated our &lt;a href=&quot;https://github.com/eclipsefdn/hugo-solstice-theme&quot;&gt;Hugo theme&lt;/a&gt;, &lt;a href=&quot;https://wiki.eclipse.org/Main_Page&quot;&gt;Eclipsepedia&lt;/a&gt;, &lt;a href=&quot;https://www.eclipse.org/forums/&quot;&gt;Eclipse Community Forums&lt;/a&gt; and a few other Drupal sites, such as the &lt;a href=&quot;https://accounts.eclipse.org/&quot;&gt;Eclipse User Profile&lt;/a&gt; and the &lt;a href=&quot;https://blogs.eclipse.org/&quot;&gt;Eclipse Foundation Blog&lt;/a&gt; to the Quicksilver look and feel!&lt;/p&gt;
+
+&lt;p&gt;This week, I am happy to announce an update to the &lt;a href=&quot;https://www.eclipse.org/downloads/packages/&quot;&gt;Eclipse Packaging&lt;/a&gt; website. For those who don’t know, the Eclipse Packaging website is used to publish download links for the Eclipse Installer and Eclipse Packages.&lt;/p&gt;
+
+&lt;p&gt;I am very proud of the work done here since the original site desperately needed some TLC. I’m hoping the new look and feel will improve the way the Eclipse IDE is downloaded by the  community!&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;Eclipse.org new home page&quot; src=&quot;https://www.chrisguindon.com/post/eclipse-epp-website-improvements/before-and-after.jpg&quot; title=&quot;Eclipse.org new home page&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;New features include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A website redesign based off the Quicksilver look and feel.&lt;/li&gt;
+&lt;li&gt;The links to the &lt;a href=&quot;https://www.eclipse.org/downloads/packages/installer&quot;&gt;Eclipse Installer&lt;/a&gt;, &lt;a href=&quot;https://www.eclipse.org/downloads/packages/&quot;&gt;Eclipse Packages&lt;/a&gt; and Eclipse Developer Builds are more accessible via a new submenu beneath our breadcrumbs.&lt;/li&gt;
+&lt;li&gt;Created a new &lt;a href=&quot;https://www.eclipse.org/downloads/packages/installer&quot;&gt;Eclipse Installer download page&lt;/a&gt; page with instructions.&lt;/li&gt;
+&lt;li&gt;Made improvements to our breadcrumb links which allow users to easily find every &lt;a href=&quot;https://www.eclipse.org/downloads/packages/release&quot;&gt;Eclipse release&lt;/a&gt; on the Eclipse Packaging site.&lt;/li&gt;
+&lt;li&gt;The &lt;em&gt;More Downloads&lt;/em&gt; sidebar includes links to Eclipse Packages instead of the release train landing page.&lt;/li&gt;
+&lt;li&gt;Links to the Eclipse Installer is available in the sidebar.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Finally, this migration is also a win for the Eclipse Foundation staff. These changes to the Eclipse Packages site allow us to streamline the Eclipse Release process and no longer requires us to manually submit Gerrit patches to publish a release.&lt;/p&gt;</description>
+	<pubDate>Thu, 02 Aug 2018 14:30:00 +0000</pubDate>
+</item>
+<item>
+	<title>Eclipse Announcements: We Are Open</title>
+	<guid isPermaLink="true">http://feedproxy.google.com/~r/eclipse/fnews/~3/pFxW2hExaTw/we-are-open</guid>
+	<link>http://feedproxy.google.com/~r/eclipse/fnews/~3/pFxW2hExaTw/we-are-open</link>
+	<description>We Are Open campaign provides a peek into Eclipse community's openness, innovation, and collaboration.&lt;img alt=&quot;&quot; height=&quot;1&quot; src=&quot;http://feeds.feedburner.com/~r/eclipse/fnews/~4/pFxW2hExaTw&quot; width=&quot;1&quot; /&gt;</description>
+	<pubDate>Thu, 02 Aug 2018 13:00:00 +0000</pubDate>
+</item>
+<item>
+	<title>Thabang Mashologu: We Are Open</title>
+	<guid isPermaLink="false">https://blogs.eclipse.org/6634 at https://blogs.eclipse.org</guid>
+	<link>https://blogs.eclipse.org/post/thabang-mashologu/we-are-open</link>
+	<description>&lt;div class=&quot;field field-name-body field-type-text-with-summary field-label-hidden&quot;&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;&lt;p&gt;Back in April, our Executive Director Mike Milinkovich &lt;a href=&quot;https://mmilinkov.wordpress.com/2018/04/10/eclipse-foundation-new-logo/&quot;&gt;blogged&lt;/a&gt; about a new logo and redesigned website for the Eclipse Foundation. Our new branding is meant to reflect the Foundation’s role beyond the Eclipse IDE. We are proud of our heritage and successfully launched the Eclipse &lt;a href=&quot;https://www.eclipse.org/photon/&quot;&gt;Photon release &lt;/a&gt;recently to a global base of over 4 million active users. But clearly the Eclipse Foundation and its 350+ open source projects represent more than the Eclipse IDE. &lt;/p&gt;
+
+&lt;p&gt;The fact is, we are a leading platform and environment for global developers and organizations to collaborate on open technologies that solve complex problems and enable value creation. &lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://blogs.eclipse.org/sites/default/files/users/user160/weareopen_1.png&quot; style=&quot;height: 400px; width: 800px;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;From &lt;a href=&quot;http://jakarta.ee&quot;&gt;enterprise Java&lt;/a&gt; to &lt;a href=&quot;http://iot.eclipse.org&quot;&gt;IoT&lt;/a&gt; and &lt;a href=&quot;https://wiki.eclipse.org/OpenADx&quot;&gt;autonomous vehicles&lt;/a&gt;, we are increasingly becoming the open source foundation of choice for digital companies looking for a vendor-neutral governance model to help them to accelerate market adoption of technologies and standards, increase the pace of innovation, and to reduce development costs. In fact, we are supported by over &lt;a href=&quot;https://www.eclipse.org/membership/exploreMembership.php&quot;&gt;275 organizations&lt;/a&gt; who see the strategic, operational and financial value of open source software development at the Eclipse Foundation.&lt;/p&gt;
+
+&lt;p&gt;For thousands of developers around the world, we offer great opportunities to contribute to game-changing technologies, demonstrate expertise, and participate in our vibrant Eclipse community, among many other benefits. At the time of writing, we have over 1,550 committers and counting who power Eclipse projects spanning many technology domains.&lt;/p&gt;
+
+&lt;p&gt;The Foundation marketing team has the fun job of sharing the stories and successes of our community with the world. To that end, we developed the &lt;a href=&quot;https://www.youtube.com/watch?v=3bYpE7K2x60&quot;&gt;We Are Open video campaign&lt;/a&gt; to provide a quick peek into how the Eclipse community represents openness, innovation, and collaboration. We hope you like it, share and subscribe to our various channels!&lt;br /&gt;
+ &lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description>
+	<pubDate>Wed, 01 Aug 2018 18:31:53 +0000</pubDate>
+</item>
+<item>
+	<title>EclipseCon Europe 2018: Accepted Sessions Announced</title>
+	<guid isPermaLink="false">https://www.eclipsecon.org/news/640 at https://www.eclipsecon.org</guid>
+	<link>https://www.eclipsecon.org/europe2018/news/accepted-sessions-announced</link>
+	<description>&lt;div class=&quot;field field-name-body field-type-text-with-summary field-label-hidden&quot;&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;&lt;p&gt;It was a lot of work for the program committee, but they got it done! And thank you again to all the  community members who sent in a talk proposal.&lt;/p&gt;
+
+&lt;p&gt;Visit &lt;a href=&quot;https://www.eclipsecon.org/europe2018/sessions/accepted&quot; target=&quot;_blank&quot;&gt;this page&lt;/a&gt; to see the list of accepted tutorials and talks.  We expect to have the schedule done by mid-August.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description>
+	<pubDate>Tue, 31 Jul 2018 20:14:20 +0000</pubDate>
+</item>
+<item>
+	<title>Eclipse Announcements: Eclipse Foundation Announces Jakarta EE Committee Election Results</title>
+	<guid isPermaLink="true">http://feedproxy.google.com/~r/eclipse/fnews/~3/4kRdPZP_inc/20180731-jakartaEE_committee_election.php</guid>
+	<link>http://feedproxy.google.com/~r/eclipse/fnews/~3/4kRdPZP_inc/20180731-jakartaEE_committee_election.php</link>
+	<description>The results are in for Participant and Committer Member elections for representatives to the Jakarta EE Working Group!&lt;img alt=&quot;&quot; height=&quot;1&quot; src=&quot;http://feeds.feedburner.com/~r/eclipse/fnews/~4/4kRdPZP_inc&quot; width=&quot;1&quot; /&gt;</description>
+	<pubDate>Tue, 31 Jul 2018 14:10:00 +0000</pubDate>
+</item>
+
+</channel>
+</rss>

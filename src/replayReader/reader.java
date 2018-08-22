@@ -78,12 +78,13 @@ public class reader {
 	private JComboBox<String> comboBoxTblAgents1;
 	private JComboBox<String> comboBoxTblAgents2;
 	private JComboBox<String> comboBoxTblAgents3;
+	private JComboBox<String> comboBoxSteps;
 	private JTable tableAgents3;
 	private JTable tableAgents2;
-	private boolean resetedChange;
 	private ArrayList<String> combo1Historico = new ArrayList<>();
 	private ArrayList<String> combo2Historico = new ArrayList<>();
 	private ArrayList<String> combo3Historico = new ArrayList<>();
+	private ArrayList<String> comboStepsHistorico = new ArrayList<>();
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -272,7 +273,7 @@ public class reader {
 		tableAgents1 = new JTable();
 		tableAgents1.setModel(new DefaultTableModel(new Object[][] {},
 				new String[] { "Charge Max", "Charge", "Role", "Route Length", "Lon", "Team", "Load Max", "Speed",
-						"Vision", "Route", "Load", "Last Action", "Skill", "Name", "Items", "Facility", "Lat" }));
+						"Vision", "Route", "Load", "Last Action", "Skill", "Step", "Items", "Facility", "Lat" }));
 		scrollPane_8.setViewportView(tableAgents1);
 		GroupLayout gl_panel_9 = new GroupLayout(panel_9);
 		gl_panel_9.setHorizontalGroup(gl_panel_9.createParallelGroup(Alignment.LEADING).addComponent(scrollPane_8,
@@ -285,10 +286,13 @@ public class reader {
 		btnImportarJson.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg) {
 				JFileChooser fileChooser = new JFileChooser();
+				fileChooser.setMultiSelectionEnabled(true);
 				int returnValue = fileChooser.showOpenDialog(null);
 				if (returnValue == JFileChooser.APPROVE_OPTION) {
-					File selectedFile = fileChooser.getSelectedFile();
-					readJSON(selectedFile);
+					File[] selectedFile = fileChooser.getSelectedFiles();
+					for (int i = 0; i < selectedFile.length; i++) {
+						readJSON(selectedFile[i]);
+					}
 				}
 			}
 		});
@@ -303,22 +307,27 @@ public class reader {
 
 		comboBoxTblAgents3 = new JComboBox<String>();
 
+		comboBoxSteps = new JComboBox<String>();
+
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(groupLayout
 				.createSequentialGroup().addGap(10)
 				.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addComponent(lblTitle, GroupLayout.DEFAULT_SIZE, 907, Short.MAX_VALUE)
 						.addGroup(groupLayout.createSequentialGroup().addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
+								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+										.addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
+										.addComponent(comboBoxSteps, GroupLayout.PREFERRED_SIZE, 139,
+												GroupLayout.PREFERRED_SIZE))
 								.addPreferredGap(ComponentPlacement.RELATED)
 								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-										.addComponent(tabbedPaneAgents1, GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
+										.addComponent(tabbedPaneAgents1, GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
 										.addGroup(groupLayout.createSequentialGroup()
-												.addComponent(tabbedPane_2, GroupLayout.DEFAULT_SIZE, 493,
+												.addComponent(tabbedPane_2, GroupLayout.DEFAULT_SIZE, 495,
 														Short.MAX_VALUE)
 												.addGap(3))
 										.addGroup(groupLayout.createSequentialGroup()
-												.addComponent(tabbedPane_1, GroupLayout.DEFAULT_SIZE, 493,
+												.addComponent(tabbedPane_1, GroupLayout.DEFAULT_SIZE, 494,
 														Short.MAX_VALUE)
 												.addGap(4))
 										.addComponent(comboBoxTblAgents2, GroupLayout.PREFERRED_SIZE, 139,
@@ -333,8 +342,11 @@ public class reader {
 		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(groupLayout
 				.createSequentialGroup()
 				.addComponent(lblTitle, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE).addGap(21)
-				.addComponent(comboBoxTblAgents1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-						GroupLayout.PREFERRED_SIZE)
+				.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(comboBoxTblAgents1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE)
+						.addComponent(comboBoxSteps, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE))
 				.addPreferredGap(ComponentPlacement.RELATED)
 				.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)
@@ -357,7 +369,7 @@ public class reader {
 		tableAgents3 = new JTable();
 		tableAgents3.setModel(new DefaultTableModel(new Object[][] {},
 				new String[] { "Charge Max", "Charge", "Role", "Route Length", "Lon", "Team", "Load Max", "Speed",
-						"Vision", "Route", "Load", "Last Action", "Skill", "Name", "Items", "Facility", "Lat" }));
+						"Vision", "Route", "Load", "Last Action", "Skill", "Step", "Items", "Facility", "Lat" }));
 		scrollPane_11.setViewportView(tableAgents3);
 
 		JScrollPane scrollPane_10 = new JScrollPane();
@@ -366,51 +378,122 @@ public class reader {
 		tableAgents2 = new JTable();
 		tableAgents2.setModel(new DefaultTableModel(new Object[][] {},
 				new String[] { "Charge Max", "Charge", "Role", "Route Length", "Lon", "Team", "Load Max", "Speed",
-						"Vision", "Route", "Load", "Last Action", "Skill", "Name", "Items", "Facility", "Lat" }));
+						"Vision", "Route", "Load", "Last Action", "Skill", "Step", "Items", "Facility", "Lat" }));
 		scrollPane_10.setViewportView(tableAgents2);
 		frame.getContentPane().setLayout(groupLayout);
 	}
 
 	public void readJSON(File file) {
 		try {
-			resetedChange = false;
 			String fileNameExt = file.getName();
 			String fileName = FilenameUtils.removeExtension(fileNameExt);
 			int stepInt = 0;
 			JSONParser parser = new JSONParser();
 			Object obj = parser.parse(new FileReader(file));
+			comboStepsHistorico.add(fileName);
+
+			JSONObject jsonObject = (JSONObject) obj;
+			JSONObject step = (JSONObject) jsonObject.get(fileName);
+			JSONArray storages = (JSONArray) step.get("storages");
+			JSONArray resourceNodes = (JSONArray) step.get("resourceNodes");
+			JSONArray teams = (JSONArray) step.get("teams");
+			JSONArray jobs = (JSONArray) step.get("jobs");
+			JSONArray dumps = (JSONArray) step.get("dumps");
+			JSONArray workshops = (JSONArray) step.get("workshops");
+			JSONArray shops = (JSONArray) step.get("shops");
+			JSONArray wells = (JSONArray) step.get("wells");
+			JSONArray chargingStations = (JSONArray) step.get("chargingStations");
 
 			for (int i = 0; i < 5; i++) {
-				JSONObject jsonObject = (JSONObject) obj;
-				JSONObject step = (JSONObject) jsonObject.get(fileName);
-				JSONArray storages = (JSONArray) step.get("storages");
-				JSONArray resourceNodes = (JSONArray) step.get("resourceNodes");
-				JSONArray teams = (JSONArray) step.get("teams");
-				JSONArray jobs = (JSONArray) step.get("jobs");
-				JSONArray dumps = (JSONArray) step.get("dumps");
-				JSONArray workshops = (JSONArray) step.get("workshops");
-				JSONArray shops = (JSONArray) step.get("shops");
-				JSONArray wells = (JSONArray) step.get("wells");
-				JSONArray chargingStations = (JSONArray) step.get("chargingStations");
+				jsonObject = (JSONObject) obj;
+				step = (JSONObject) jsonObject.get(fileName);
 				JSONArray entities = (JSONArray) step.get("entities");
+				long stepNro = (long) step.get("step");
 
-				fillStorage(storages);
-				fillResourceNode(resourceNodes);
-				fillTeam(teams);
-				fillJob(jobs);
-				fillDump(dumps);
-				fillWorkshop(workshops);
-				fillShop(shops);
-				fillWells(wells);
-				fillChargingStation(chargingStations);
+				fillComboBoxStep(fileName);
 				fillComboBoxAgent(entities);
-				fillTableAgents(entities);
+				fillTableAgents(entities, stepNro);
 
 				stepInt = Integer.parseInt(fileName);
 				stepInt++;
 				fileName = Integer.toString(stepInt);
 
 			}
+			
+			fillStorage(storages);
+			fillResourceNode(resourceNodes);
+			fillTeam(teams);
+			fillJob(jobs);
+			fillDump(dumps);
+			fillWorkshop(workshops);
+			fillShop(shops);
+			fillWells(wells);
+			fillChargingStation(chargingStations);
+			
+			comboBoxSteps.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					DefaultTableModel modelStorage = (DefaultTableModel) tableStorages.getModel();
+					DefaultTableModel modelResourceNode = (DefaultTableModel) tableResourceNodes.getModel();
+					DefaultTableModel modelTeam = (DefaultTableModel) tableTeams.getModel();
+					DefaultTableModel modelJob = (DefaultTableModel) tableJobs.getModel();
+					DefaultTableModel modelDump = (DefaultTableModel) tableDumps.getModel();
+					DefaultTableModel modelWorkshop = (DefaultTableModel) tableWorkshops.getModel();
+					DefaultTableModel modelShop = (DefaultTableModel) tableShops.getModel();
+					DefaultTableModel modelWells = (DefaultTableModel) tableWells.getModel();
+					DefaultTableModel modelChargingStation = (DefaultTableModel) tableChargingStation.getModel();
+					
+					String selectedStep = (String) comboBoxSteps.getSelectedItem();
+					JSONObject jsonObject = (JSONObject) obj;
+					JSONObject step = (JSONObject) jsonObject.get(selectedStep);
+					long stepNro = (long) step.get("step");
+					String stepString = Long.toString(stepNro);
+					comboStepsHistorico.add(stepString);
+					
+					JSONArray storages = (JSONArray) step.get("storages");
+					JSONArray resourceNodes = (JSONArray) step.get("resourceNodes");
+					JSONArray teams = (JSONArray) step.get("teams");
+					JSONArray jobs = (JSONArray) step.get("jobs");
+					JSONArray dumps = (JSONArray) step.get("dumps");
+					JSONArray workshops = (JSONArray) step.get("workshops");
+					JSONArray shops = (JSONArray) step.get("shops");
+					JSONArray wells = (JSONArray) step.get("wells");
+					JSONArray chargingStations = (JSONArray) step.get("chargingStations");
+					
+					int size = comboStepsHistorico.size();
+					if (size >= 2) {
+						if (!comboStepsHistorico.get(size - 1).equalsIgnoreCase(comboStepsHistorico.get(size - 2))) {
+							resetTable(modelStorage);
+							fillStorage(storages);
+							
+							resetTable(modelResourceNode);
+							fillResourceNode(resourceNodes);
+							
+							resetTable(modelTeam);
+							fillTeam(teams);
+							
+							resetTable(modelJob);
+							fillJob(jobs);
+							
+							resetTable(modelDump);
+							fillDump(dumps);
+							
+							resetTable(modelWorkshop);
+							fillWorkshop(workshops);
+							
+							resetTable(modelShop);
+							fillShop(shops);
+							
+							resetTable(modelWells);
+							fillWells(wells);
+							
+							resetTable(modelChargingStation);
+							fillChargingStation(chargingStations);
+						}
+					}
+
+				}
+			});
+
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -420,6 +503,10 @@ public class reader {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	private void fillComboBoxStep(String step) {
+		comboBoxSteps.addItem(step);
 	}
 
 	private void fillStorage(JSONArray storages) {
@@ -573,14 +660,13 @@ public class reader {
 
 	private void resetTable(DefaultTableModel model) {
 		if (model.getRowCount() > 0) {
-			resetedChange = true;
 			while (model.getRowCount() > 0) {
 				model.removeRow(0);
 			}
 		}
 	}
 
-	private void fillTableAgents(JSONArray agents) {
+	private void fillTableAgents(JSONArray agents, long step) {
 		comboBoxTblAgents1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				DefaultTableModel model = (DefaultTableModel) tableAgents1.getModel();
@@ -616,7 +702,7 @@ public class reader {
 						}
 
 						model.addRow(new Object[] { chargeMax, charge, role, routeLength, lon, team, loadMax, speed,
-								vision, route, load, lastAction, skill, name, items, facility, lat });
+								vision, route, load, lastAction, skill, step, items, facility, lat });
 					}
 				}
 			}
@@ -655,9 +741,9 @@ public class reader {
 								resetTable(model);
 							}
 						}
-						
+
 						model.addRow(new Object[] { chargeMax, charge, role, routeLength, lon, team, loadMax, speed,
-								vision, route, load, lastAction, skill, name, items, facility, lat });
+								vision, route, load, lastAction, skill, step, items, facility, lat });
 					}
 				}
 			}
@@ -696,9 +782,9 @@ public class reader {
 								resetTable(model);
 							}
 						}
-						
+
 						model.addRow(new Object[] { chargeMax, charge, role, routeLength, lon, team, loadMax, speed,
-								vision, route, load, lastAction, skill, name, items, facility, lat });
+								vision, route, load, lastAction, skill, step, items, facility, lat });
 					}
 				}
 			}
@@ -732,24 +818,23 @@ public class reader {
 			String facility = (String) agentAtual.get("facility");
 			double lon = (double) agentAtual.get("lon");
 			double lat = (double) agentAtual.get("lat");
-			
 
 			if (name.equals(agenteSelecionadoCombo1)) {
 				combo1Historico.add(name);
 				model.addRow(new Object[] { chargeMax, charge, role, routeLength, lon, team, loadMax, speed, vision,
-						route, load, lastAction, skill, name, items, facility, lat });
+						route, load, lastAction, skill, step, items, facility, lat });
 			}
 
 			if (name.equals(agenteSelecionadoCombo2)) {
 				combo2Historico.add(name);
 				model2.addRow(new Object[] { chargeMax, charge, role, routeLength, lon, team, loadMax, speed, vision,
-						route, load, lastAction, skill, name, items, facility, lat });
+						route, load, lastAction, skill, step, items, facility, lat });
 			}
 
 			if (name.equals(agenteSelecionadoCombo3)) {
 				combo3Historico.add(name);
 				model3.addRow(new Object[] { chargeMax, charge, role, routeLength, lon, team, loadMax, speed, vision,
-						route, load, lastAction, skill, name, items, facility, lat });
+						route, load, lastAction, skill, step, items, facility, lat });
 			}
 
 		}
