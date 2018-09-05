@@ -24,6 +24,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.Iterator;
@@ -45,6 +46,8 @@ import java.awt.Insets;
 import java.awt.Panel;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 import java.awt.Component;
@@ -85,6 +88,9 @@ public class reader {
 	private ArrayList<String> combo2Historico = new ArrayList<>();
 	private ArrayList<String> combo3Historico = new ArrayList<>();
 	private ArrayList<String> comboStepsHistorico = new ArrayList<>();
+	private ArrayList<JSONObject> historicoFiles = new ArrayList<>();
+	private ArrayList<Integer> agentesOrdenadosA = new ArrayList<>();
+	private ArrayList<Integer> agentesOrdenadosB = new ArrayList<>();
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -262,8 +268,8 @@ public class reader {
 		panel_5.setLayout(gl_panel_5);
 
 		tabbedPaneAgents1 = new JTabbedPane(JTabbedPane.TOP);
-
 		comboBoxTblAgents1 = new JComboBox<String>();
+		comboBoxTblAgents1.setMaximumSize(comboBoxTblAgents1.getPreferredSize());
 
 		JPanel panel_9 = new JPanel();
 		tabbedPaneAgents1.addTab("Agents", null, panel_9, null);
@@ -271,9 +277,9 @@ public class reader {
 		JScrollPane scrollPane_8 = new JScrollPane();
 
 		tableAgents1 = new JTable();
-		tableAgents1.setModel(new DefaultTableModel(new Object[][] {},
-				new String[] { "Charge Max", "Charge", "Role", "Route Length", "Lon", "Team", "Load Max", "Speed",
-						"Vision", "Route", "Load", "Last Action", "Skill", "Step", "Items", "Facility", "Lat" }));
+		tableAgents1.setModel(new DefaultTableModel(new Object[][] {}, new String[] { "Atributo", "Valor" }));
+		tableAgents1.getColumnModel().getColumn(0).setPreferredWidth(30);
+		tableAgents1.getColumnModel().getColumn(1).setPreferredWidth(200);
 		scrollPane_8.setViewportView(tableAgents1);
 		GroupLayout gl_panel_9 = new GroupLayout(panel_9);
 		gl_panel_9.setHorizontalGroup(gl_panel_9.createParallelGroup(Alignment.LEADING).addComponent(scrollPane_8,
@@ -296,6 +302,7 @@ public class reader {
 				}
 			}
 		});
+
 		frame.getContentPane().setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[] { lblTitle, tabbedPane,
 				panel, panel_2, panel_3, panel_6, panel_7, panel_8, btnImportarJson }));
 
@@ -304,83 +311,191 @@ public class reader {
 		JTabbedPane tabbedPane_2 = new JTabbedPane(JTabbedPane.TOP);
 
 		comboBoxTblAgents2 = new JComboBox<String>();
-
 		comboBoxTblAgents3 = new JComboBox<String>();
 
 		comboBoxSteps = new JComboBox<String>();
 
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(groupLayout
-				.createSequentialGroup().addGap(10)
-				.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblTitle, GroupLayout.DEFAULT_SIZE, 907, Short.MAX_VALUE)
-						.addGroup(groupLayout.createSequentialGroup().addPreferredGap(ComponentPlacement.RELATED)
-								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-										.addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
-										.addComponent(comboBoxSteps, GroupLayout.PREFERRED_SIZE, 139,
-												GroupLayout.PREFERRED_SIZE))
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-										.addComponent(tabbedPaneAgents1, GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
-										.addGroup(groupLayout.createSequentialGroup()
-												.addComponent(tabbedPane_2, GroupLayout.DEFAULT_SIZE, 495,
-														Short.MAX_VALUE)
-												.addGap(3))
-										.addGroup(groupLayout.createSequentialGroup()
-												.addComponent(tabbedPane_1, GroupLayout.DEFAULT_SIZE, 494,
-														Short.MAX_VALUE)
-												.addGap(4))
-										.addComponent(comboBoxTblAgents2, GroupLayout.PREFERRED_SIZE, 139,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(comboBoxTblAgents3, GroupLayout.PREFERRED_SIZE, 139,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(comboBoxTblAgents1, GroupLayout.PREFERRED_SIZE, 139,
-												GroupLayout.PREFERRED_SIZE))))
-				.addGap(10))
+		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup().addContainerGap()
-						.addComponent(btnImportarJson, GroupLayout.DEFAULT_SIZE, 898, Short.MAX_VALUE).addGap(19)));
-		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(groupLayout
-				.createSequentialGroup()
-				.addComponent(lblTitle, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE).addGap(21)
-				.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(comboBoxTblAgents1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addComponent(comboBoxSteps, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE))
-				.addPreferredGap(ComponentPlacement.RELATED)
-				.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)
-						.addGroup(groupLayout.createSequentialGroup()
-								.addComponent(tabbedPaneAgents1, GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
-								.addGap(14)
-								.addComponent(comboBoxTblAgents2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-										GroupLayout.PREFERRED_SIZE)
-								.addGap(16).addComponent(tabbedPane_1, GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
-								.addGap(7)
-								.addComponent(comboBoxTblAgents3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-										GroupLayout.PREFERRED_SIZE)
-								.addGap(10).addComponent(tabbedPane_2, GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)))
-				.addGap(28).addComponent(btnImportarJson, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-				.addGap(20)));
+						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addGroup(
+										groupLayout.createSequentialGroup()
+												.addComponent(lblTitle, GroupLayout.DEFAULT_SIZE, 907, Short.MAX_VALUE)
+												.addContainerGap())
+								.addGroup(groupLayout.createSequentialGroup()
+										.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+												.addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE, 323,
+														Short.MAX_VALUE)
+												.addComponent(comboBoxSteps, GroupLayout.PREFERRED_SIZE, 139,
+														GroupLayout.PREFERRED_SIZE))
+										.addPreferredGap(ComponentPlacement.UNRELATED)
+										.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+												.addComponent(comboBoxTblAgents1, GroupLayout.PREFERRED_SIZE, 84,
+														GroupLayout.PREFERRED_SIZE)
+												.addComponent(tabbedPaneAgents1, GroupLayout.DEFAULT_SIZE, 193,
+														Short.MAX_VALUE))
+										.addPreferredGap(ComponentPlacement.UNRELATED)
+										.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+												.addComponent(comboBoxTblAgents3, GroupLayout.PREFERRED_SIZE, 84,
+														GroupLayout.PREFERRED_SIZE)
+												.addComponent(tabbedPane_2, GroupLayout.DEFAULT_SIZE, 184,
+														Short.MAX_VALUE))
+										.addPreferredGap(ComponentPlacement.UNRELATED)
+										.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+												.addComponent(comboBoxTblAgents2, GroupLayout.PREFERRED_SIZE, 84,
+														GroupLayout.PREFERRED_SIZE)
+												.addComponent(tabbedPane_1, Alignment.TRAILING,
+														GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE))
+										.addContainerGap())
+								.addGroup(groupLayout.createSequentialGroup()
+										.addComponent(btnImportarJson, GroupLayout.DEFAULT_SIZE, 898, Short.MAX_VALUE)
+										.addGap(19)))));
+		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup().addContainerGap()
+						.addComponent(lblTitle, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(ComponentPlacement.RELATED)
+						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addGroup(groupLayout.createSequentialGroup()
+										.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+												.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+														.addComponent(comboBoxSteps, GroupLayout.PREFERRED_SIZE,
+																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+														.addComponent(comboBoxTblAgents1, GroupLayout.PREFERRED_SIZE,
+																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+												.addComponent(comboBoxTblAgents2, GroupLayout.PREFERRED_SIZE,
+														GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+										.addPreferredGap(ComponentPlacement.RELATED)
+										.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+												.addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE, 562,
+														Short.MAX_VALUE)
+												.addComponent(tabbedPane_1, GroupLayout.DEFAULT_SIZE, 560,
+														Short.MAX_VALUE)))
+								.addGroup(groupLayout.createSequentialGroup()
+										.addComponent(comboBoxTblAgents3, GroupLayout.PREFERRED_SIZE,
+												GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(ComponentPlacement.RELATED)
+										.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+												.addComponent(tabbedPaneAgents1, GroupLayout.DEFAULT_SIZE, 562,
+														Short.MAX_VALUE)
+												.addComponent(tabbedPane_2, GroupLayout.DEFAULT_SIZE, 562,
+														Short.MAX_VALUE))))
+						.addPreferredGap(ComponentPlacement.RELATED)
+						.addComponent(btnImportarJson, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+						.addGap(15)));
 
 		JScrollPane scrollPane_11 = new JScrollPane();
-		tabbedPane_2.addTab("New tab", null, scrollPane_11, null);
+		tabbedPane_2.addTab("Agents", null, scrollPane_11, null);
 
 		tableAgents3 = new JTable();
-		tableAgents3.setModel(new DefaultTableModel(new Object[][] {},
-				new String[] { "Charge Max", "Charge", "Role", "Route Length", "Lon", "Team", "Load Max", "Speed",
-						"Vision", "Route", "Load", "Last Action", "Skill", "Step", "Items", "Facility", "Lat" }));
+		tableAgents3.setModel(new DefaultTableModel(new Object[][] {}, new String[] { "Atributo", "Valor" }));
+		tableAgents3.getColumnModel().getColumn(0).setPreferredWidth(30);
+		tableAgents3.getColumnModel().getColumn(1).setPreferredWidth(200);
 		scrollPane_11.setViewportView(tableAgents3);
 
 		JScrollPane scrollPane_10 = new JScrollPane();
-		tabbedPane_1.addTab("New tab", null, scrollPane_10, null);
+		tabbedPane_1.addTab("Agents", null, scrollPane_10, null);
 
 		tableAgents2 = new JTable();
-		tableAgents2.setModel(new DefaultTableModel(new Object[][] {},
-				new String[] { "Charge Max", "Charge", "Role", "Route Length", "Lon", "Team", "Load Max", "Speed",
-						"Vision", "Route", "Load", "Last Action", "Skill", "Step", "Items", "Facility", "Lat" }));
+		tableAgents2.setModel(new DefaultTableModel(new Object[][] {}, new String[] { "Atributo", "Valor" }));
+		tableAgents2.getColumnModel().getColumn(0).setPreferredWidth(30);
+		tableAgents2.getColumnModel().getColumn(1).setPreferredWidth(200);
 		scrollPane_10.setViewportView(tableAgents2);
 		frame.getContentPane().setLayout(groupLayout);
+		
+		comboBoxSteps.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				DefaultTableModel modelStorage = (DefaultTableModel) tableStorages.getModel();
+				DefaultTableModel modelResourceNode = (DefaultTableModel) tableResourceNodes.getModel();
+				DefaultTableModel modelTeam = (DefaultTableModel) tableTeams.getModel();
+				DefaultTableModel modelJob = (DefaultTableModel) tableJobs.getModel();
+				DefaultTableModel modelDump = (DefaultTableModel) tableDumps.getModel();
+				DefaultTableModel modelWorkshop = (DefaultTableModel) tableWorkshops.getModel();
+				DefaultTableModel modelShop = (DefaultTableModel) tableShops.getModel();
+				DefaultTableModel modelWells = (DefaultTableModel) tableWells.getModel();
+				DefaultTableModel modelChargingStation = (DefaultTableModel) tableChargingStation.getModel();
+				DefaultTableModel modelAgents1 = (DefaultTableModel) tableAgents1.getModel();
+				DefaultTableModel modelAgents2 = (DefaultTableModel) tableAgents2.getModel();
+				DefaultTableModel modelAgents3 = (DefaultTableModel) tableAgents3.getModel();
+
+				String selectedStep = (String) comboBoxSteps.getSelectedItem();
+				long selectedStepLong = Long.parseLong(selectedStep);
+				String stepInicial = comboBoxSteps.getItemAt(0);
+				boolean achou = false;
+
+				for (int i = 0; i < historicoFiles.size(); i++) {
+					JSONObject objetoAtual = (JSONObject) historicoFiles.get(i);
+					for (int j = 0; j < 5; j++) {
+						JSONObject innerStep = (JSONObject) objetoAtual.get(stepInicial);
+						long stepAtual = (long) innerStep.get("step");
+						if (stepAtual == selectedStepLong) {
+							JSONObject step = (JSONObject) objetoAtual.get(selectedStep);
+							long stepNro = (long) step.get("step");
+							String stepString = Long.toString(stepNro);
+							comboStepsHistorico.add(stepString);
+
+							JSONArray storages = (JSONArray) step.get("storages");
+							JSONArray resourceNodes = (JSONArray) step.get("resourceNodes");
+							JSONArray teams = (JSONArray) step.get("teams");
+							JSONArray jobs = (JSONArray) step.get("jobs");
+							JSONArray dumps = (JSONArray) step.get("dumps");
+							JSONArray workshops = (JSONArray) step.get("workshops");
+							JSONArray shops = (JSONArray) step.get("shops");
+							JSONArray wells = (JSONArray) step.get("wells");
+							JSONArray chargingStations = (JSONArray) step.get("chargingStations");
+							JSONArray entities = (JSONArray) step.get("entities");
+
+							int size = comboStepsHistorico.size();
+							if (size >= 2) {
+								if (!comboStepsHistorico.get(size - 1)
+										.equalsIgnoreCase(comboStepsHistorico.get(size - 2))) {
+									resetTable(modelStorage);
+									fillStorage(storages);
+
+									resetTable(modelResourceNode);
+									fillResourceNode(resourceNodes);
+
+									resetTable(modelTeam);
+									fillTeam(teams);
+
+									resetTable(modelJob);
+									fillJob(jobs);
+
+									resetTable(modelDump);
+									fillDump(dumps);
+
+									resetTable(modelWorkshop);
+									fillWorkshop(workshops);
+
+									resetTable(modelShop);
+									fillShop(shops);
+
+									resetTable(modelWells);
+									fillWells(wells);
+
+									resetTable(modelChargingStation);
+									fillChargingStation(chargingStations);
+
+									resetTable(modelAgents1);
+									resetTable(modelAgents2);
+									resetTable(modelAgents3);
+									fillTableAgents(entities);
+									achou = true;
+									break;
+								}
+							}
+						} else {
+							int nextStep = Integer.parseInt(stepInicial);
+							nextStep++;
+							stepInicial = Integer.toString(nextStep);
+						}
+					}
+					if (achou) {
+						break;
+					}
+				}
+			}
+		});
 	}
 
 	public void readJSON(File file) {
@@ -393,7 +508,8 @@ public class reader {
 			comboStepsHistorico.add(fileName);
 
 			JSONObject jsonObject = (JSONObject) obj;
-			JSONObject step = (JSONObject) jsonObject.get(fileName);
+			historicoFiles.add(jsonObject);
+			JSONObject step = (JSONObject) historicoFiles.get(historicoFiles.size() - 1).get(fileName);
 			JSONArray storages = (JSONArray) step.get("storages");
 			JSONArray resourceNodes = (JSONArray) step.get("resourceNodes");
 			JSONArray teams = (JSONArray) step.get("teams");
@@ -403,96 +519,30 @@ public class reader {
 			JSONArray shops = (JSONArray) step.get("shops");
 			JSONArray wells = (JSONArray) step.get("wells");
 			JSONArray chargingStations = (JSONArray) step.get("chargingStations");
+			JSONArray entities = (JSONArray) step.get("entities");
+
+			if (historicoFiles.size() == 1) {
+				fillTableAgents(entities);
+				fillStorage(storages);
+				fillResourceNode(resourceNodes);
+				fillTeam(teams);
+				fillJob(jobs);
+				fillDump(dumps);
+				fillWorkshop(workshops);
+				fillShop(shops);
+				fillWells(wells);
+				fillChargingStation(chargingStations);
+				fillComboBoxAgent(entities);
+			}
 
 			for (int i = 0; i < 5; i++) {
 				jsonObject = (JSONObject) obj;
 				step = (JSONObject) jsonObject.get(fileName);
-				JSONArray entities = (JSONArray) step.get("entities");
-				long stepNro = (long) step.get("step");
-
 				fillComboBoxStep(fileName);
-				fillComboBoxAgent(entities);
-				fillTableAgents(entities, stepNro);
-
 				stepInt = Integer.parseInt(fileName);
 				stepInt++;
 				fileName = Integer.toString(stepInt);
-
 			}
-			
-			fillStorage(storages);
-			fillResourceNode(resourceNodes);
-			fillTeam(teams);
-			fillJob(jobs);
-			fillDump(dumps);
-			fillWorkshop(workshops);
-			fillShop(shops);
-			fillWells(wells);
-			fillChargingStation(chargingStations);
-			
-			comboBoxSteps.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent arg0) {
-					DefaultTableModel modelStorage = (DefaultTableModel) tableStorages.getModel();
-					DefaultTableModel modelResourceNode = (DefaultTableModel) tableResourceNodes.getModel();
-					DefaultTableModel modelTeam = (DefaultTableModel) tableTeams.getModel();
-					DefaultTableModel modelJob = (DefaultTableModel) tableJobs.getModel();
-					DefaultTableModel modelDump = (DefaultTableModel) tableDumps.getModel();
-					DefaultTableModel modelWorkshop = (DefaultTableModel) tableWorkshops.getModel();
-					DefaultTableModel modelShop = (DefaultTableModel) tableShops.getModel();
-					DefaultTableModel modelWells = (DefaultTableModel) tableWells.getModel();
-					DefaultTableModel modelChargingStation = (DefaultTableModel) tableChargingStation.getModel();
-					
-					String selectedStep = (String) comboBoxSteps.getSelectedItem();
-					JSONObject jsonObject = (JSONObject) obj;
-					JSONObject step = (JSONObject) jsonObject.get(selectedStep);
-					long stepNro = (long) step.get("step");
-					String stepString = Long.toString(stepNro);
-					comboStepsHistorico.add(stepString);
-					
-					JSONArray storages = (JSONArray) step.get("storages");
-					JSONArray resourceNodes = (JSONArray) step.get("resourceNodes");
-					JSONArray teams = (JSONArray) step.get("teams");
-					JSONArray jobs = (JSONArray) step.get("jobs");
-					JSONArray dumps = (JSONArray) step.get("dumps");
-					JSONArray workshops = (JSONArray) step.get("workshops");
-					JSONArray shops = (JSONArray) step.get("shops");
-					JSONArray wells = (JSONArray) step.get("wells");
-					JSONArray chargingStations = (JSONArray) step.get("chargingStations");
-					
-					int size = comboStepsHistorico.size();
-					if (size >= 2) {
-						if (!comboStepsHistorico.get(size - 1).equalsIgnoreCase(comboStepsHistorico.get(size - 2))) {
-							resetTable(modelStorage);
-							fillStorage(storages);
-							
-							resetTable(modelResourceNode);
-							fillResourceNode(resourceNodes);
-							
-							resetTable(modelTeam);
-							fillTeam(teams);
-							
-							resetTable(modelJob);
-							fillJob(jobs);
-							
-							resetTable(modelDump);
-							fillDump(dumps);
-							
-							resetTable(modelWorkshop);
-							fillWorkshop(workshops);
-							
-							resetTable(modelShop);
-							fillShop(shops);
-							
-							resetTable(modelWells);
-							fillWells(wells);
-							
-							resetTable(modelChargingStation);
-							fillChargingStation(chargingStations);
-						}
-					}
-
-				}
-			});
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -624,23 +674,36 @@ public class reader {
 		for (int i = 0; i < agents.size(); i++) {
 			JSONObject agentAtual = (JSONObject) agents.get(i);
 			String name = (String) agentAtual.get("name");
-			if (i <= 22) {
-				if (combobox.getIndexOf(name) == -1) {
-					comboBoxTblAgents1.addItem(name);
+			if (combobox.getIndexOf(name) == -1 && combobox2.getIndexOf(name) == -1
+					&& combobox3.getIndexOf(name) == -1) {
+				String time = name.substring(5, 6);
+				String numeroAgenteString = name.substring(6);
+				int nroAgente = Integer.parseInt(numeroAgenteString);
+				if (time.equalsIgnoreCase("A")) {
+					agentesOrdenadosA.add(nroAgente);
 				}
-			}
 
-			if (i > 22 && i <= 44) {
-				if (combobox2.getIndexOf(name) == -1) {
-					comboBoxTblAgents2.addItem(name);
+				if (time.equalsIgnoreCase("B")) {
+					agentesOrdenadosB.add(nroAgente);
 				}
 			}
+		}
 
-			if (i > 44) {
-				if (combobox3.getIndexOf(name) == -1) {
-					comboBoxTblAgents3.addItem(name);
-				}
-			}
+		Collections.sort(agentesOrdenadosA);
+		Collections.sort(agentesOrdenadosB);
+
+		for (int j = 0; j < agentesOrdenadosA.size(); j++) {
+			String nAgent = "agentA" + agentesOrdenadosA.get(j);
+			comboBoxTblAgents1.addItem(nAgent);
+			comboBoxTblAgents2.addItem(nAgent);
+			comboBoxTblAgents3.addItem(nAgent);
+		}
+
+		for (int j = 0; j < agentesOrdenadosA.size(); j++) {
+			String nAgent = "agentB" + agentesOrdenadosB.get(j);
+			comboBoxTblAgents1.addItem(nAgent);
+			comboBoxTblAgents2.addItem(nAgent);
+			comboBoxTblAgents3.addItem(nAgent);
 		}
 	}
 
@@ -666,7 +729,224 @@ public class reader {
 		}
 	}
 
-	private void fillTableAgents(JSONArray agents, long step) {
+	private void fillTableAgents(JSONArray agents) {
+
+		DefaultTableModel model = (DefaultTableModel) tableAgents1.getModel();
+		DefaultTableModel model2 = (DefaultTableModel) tableAgents2.getModel();
+		DefaultTableModel model3 = (DefaultTableModel) tableAgents3.getModel();
+
+		Object agenteSelecionadoCombo1 = comboBoxTblAgents1.getSelectedItem();
+		Object agenteSelecionadoCombo2 = comboBoxTblAgents2.getSelectedItem();
+		Object agenteSelecionadoCombo3 = comboBoxTblAgents3.getSelectedItem();
+
+		for (int i = 0; i < agents.size(); i++) {
+			JSONObject agentAtual = (JSONObject) agents.get(i);
+			if (agentAtual.get("name").equals(agenteSelecionadoCombo1)) {
+				String chargeMaxEntidade = "Charge Max";
+				long chargeMax = (long) agentAtual.get("chargeMax");
+				String chargeEntidade = "Charge";
+				long charge = (long) agentAtual.get("charge");
+				String roleEntidade = "Role";
+				String role = (String) agentAtual.get("role");
+				String routeLengthEntidade = "Route Length";
+				long routeLength = (long) agentAtual.get("routeLength");
+				String teamEntidade = "Team";
+				String team = (String) agentAtual.get("team");
+				String loadMaxEntidade = "Load Max";
+				long loadMax = (long) agentAtual.get("loadMax");
+				String speedEntidade = "Speed";
+				long speed = (long) agentAtual.get("speed");
+				String visionEntidade = "Vision";
+				long vision = (long) agentAtual.get("vision");
+				String routeEntidade = "Route";
+				JSONArray route = (JSONArray) agentAtual.get("route");
+				String loadEntidade = "Load";
+				long load = (long) agentAtual.get("load");
+				JSONObject lastAction = (JSONObject) agentAtual.get("lastAction");
+				String resultEntidade = "Last Action Result";
+				String lastActionResult = (String) lastAction.get("result");
+				String typeEntidade = "Last Action Type";
+				String lastActionType = (String) lastAction.get("type");
+				String paramsEntidade = "Last Action Params";
+				JSONArray lastActionParams = (JSONArray) lastAction.get("params");
+				String skillEntidade = "Skill";
+				long skill = (long) agentAtual.get("skill");
+				String nameEntidade = "Name";
+				String name = (String) agentAtual.get("name");
+				String itemsEntidade = "Items";
+				JSONArray items = (JSONArray) agentAtual.get("items");
+				String facilityEntidade = "Facility";
+				String facility = (String) agentAtual.get("facility");
+				String lonEntidade = "Longitude";
+				double lon = (double) agentAtual.get("lon");
+				String latEntidade = "Latitude";
+				double lat = (double) agentAtual.get("lat");
+				combo1Historico.add(name);
+				int size = combo1Historico.size();
+				if (size >= 2) {
+					if (!combo1Historico.get(size - 1).equalsIgnoreCase(combo1Historico.get(size - 2))) {
+						resetTable(model);
+					}
+				}
+				model.addRow(new Object[] { chargeMaxEntidade, chargeMax });
+				model.addRow(new Object[] { chargeEntidade, charge });
+				model.addRow(new Object[] { roleEntidade, role });
+				model.addRow(new Object[] { routeLengthEntidade, routeLength });
+				model.addRow(new Object[] { teamEntidade, team });
+				model.addRow(new Object[] { loadMaxEntidade, loadMax });
+				model.addRow(new Object[] { speedEntidade, speed });
+				model.addRow(new Object[] { visionEntidade, vision });
+				model.addRow(new Object[] { routeEntidade, route });
+				model.addRow(new Object[] { loadEntidade, load });
+				model.addRow(new Object[] { resultEntidade, lastActionResult });
+				model.addRow(new Object[] { typeEntidade, lastActionType });
+				model.addRow(new Object[] { paramsEntidade, lastActionParams });
+				model.addRow(new Object[] { skillEntidade, skill });
+				model.addRow(new Object[] { nameEntidade, name });
+				model.addRow(new Object[] { itemsEntidade, items });
+				model.addRow(new Object[] { facilityEntidade, facility });
+				model.addRow(new Object[] { lonEntidade, lon });
+				model.addRow(new Object[] { latEntidade, lat });
+			}
+
+			if (agentAtual.get("name").equals(agenteSelecionadoCombo2)) {
+				String chargeMaxEntidade = "Charge Max";
+				long chargeMax = (long) agentAtual.get("chargeMax");
+				String chargeEntidade = "Charge";
+				long charge = (long) agentAtual.get("charge");
+				String roleEntidade = "Role";
+				String role = (String) agentAtual.get("role");
+				String routeLengthEntidade = "Route Length";
+				long routeLength = (long) agentAtual.get("routeLength");
+				String teamEntidade = "Team";
+				String team = (String) agentAtual.get("team");
+				String loadMaxEntidade = "Load Max";
+				long loadMax = (long) agentAtual.get("loadMax");
+				String speedEntidade = "Speed";
+				long speed = (long) agentAtual.get("speed");
+				String visionEntidade = "Vision";
+				long vision = (long) agentAtual.get("vision");
+				String routeEntidade = "Route";
+				JSONArray route = (JSONArray) agentAtual.get("route");
+				String loadEntidade = "Load";
+				long load = (long) agentAtual.get("load");
+				JSONObject lastAction = (JSONObject) agentAtual.get("lastAction");
+				String resultEntidade = "Last Action Result";
+				String lastActionResult = (String) lastAction.get("result");
+				String typeEntidade = "Last Action Type";
+				String lastActionType = (String) lastAction.get("type");
+				String paramsEntidade = "Last Action Params";
+				JSONArray lastActionParams = (JSONArray) lastAction.get("params");
+				String skillEntidade = "Skill";
+				long skill = (long) agentAtual.get("skill");
+				String nameEntidade = "Name";
+				String name = (String) agentAtual.get("name");
+				String itemsEntidade = "Items";
+				JSONArray items = (JSONArray) agentAtual.get("items");
+				String facilityEntidade = "Facility";
+				String facility = (String) agentAtual.get("facility");
+				String lonEntidade = "Longitude";
+				double lon = (double) agentAtual.get("lon");
+				String latEntidade = "Latitude";
+				double lat = (double) agentAtual.get("lat");
+				combo2Historico.add(name);
+				int size = combo2Historico.size();
+				if (size >= 2) {
+					if (!combo2Historico.get(size - 1).equalsIgnoreCase(combo2Historico.get(size - 2))) {
+						resetTable(model2);
+					}
+				}
+				model2.addRow(new Object[] { chargeMaxEntidade, chargeMax });
+				model2.addRow(new Object[] { chargeEntidade, charge });
+				model2.addRow(new Object[] { roleEntidade, role });
+				model2.addRow(new Object[] { routeLengthEntidade, routeLength });
+				model2.addRow(new Object[] { teamEntidade, team });
+				model2.addRow(new Object[] { loadMaxEntidade, loadMax });
+				model2.addRow(new Object[] { speedEntidade, speed });
+				model2.addRow(new Object[] { visionEntidade, vision });
+				model2.addRow(new Object[] { routeEntidade, route });
+				model2.addRow(new Object[] { loadEntidade, load });
+				model2.addRow(new Object[] { resultEntidade, lastActionResult });
+				model2.addRow(new Object[] { typeEntidade, lastActionType });
+				model2.addRow(new Object[] { paramsEntidade, lastActionParams });
+				model2.addRow(new Object[] { skillEntidade, skill });
+				model2.addRow(new Object[] { nameEntidade, name });
+				model2.addRow(new Object[] { itemsEntidade, items });
+				model2.addRow(new Object[] { facilityEntidade, facility });
+				model2.addRow(new Object[] { lonEntidade, lon });
+				model2.addRow(new Object[] { latEntidade, lat });
+			}
+
+			if (agentAtual.get("name").equals(agenteSelecionadoCombo3)) {
+				String chargeMaxEntidade = "Charge Max";
+				long chargeMax = (long) agentAtual.get("chargeMax");
+				String chargeEntidade = "Charge";
+				long charge = (long) agentAtual.get("charge");
+				String roleEntidade = "Role";
+				String role = (String) agentAtual.get("role");
+				String routeLengthEntidade = "Route Length";
+				long routeLength = (long) agentAtual.get("routeLength");
+				String teamEntidade = "Team";
+				String team = (String) agentAtual.get("team");
+				String loadMaxEntidade = "Load Max";
+				long loadMax = (long) agentAtual.get("loadMax");
+				String speedEntidade = "Speed";
+				long speed = (long) agentAtual.get("speed");
+				String visionEntidade = "Vision";
+				long vision = (long) agentAtual.get("vision");
+				String routeEntidade = "Route";
+				JSONArray route = (JSONArray) agentAtual.get("route");
+				String loadEntidade = "Load";
+				long load = (long) agentAtual.get("load");
+				JSONObject lastAction = (JSONObject) agentAtual.get("lastAction");
+				String resultEntidade = "Last Action Result";
+				String lastActionResult = (String) lastAction.get("result");
+				String typeEntidade = "Last Action Type";
+				String lastActionType = (String) lastAction.get("type");
+				String paramsEntidade = "Last Action Params";
+				JSONArray lastActionParams = (JSONArray) lastAction.get("params");
+				String skillEntidade = "Skill";
+				long skill = (long) agentAtual.get("skill");
+				String nameEntidade = "Name";
+				String name = (String) agentAtual.get("name");
+				String itemsEntidade = "Items";
+				JSONArray items = (JSONArray) agentAtual.get("items");
+				String facilityEntidade = "Facility";
+				String facility = (String) agentAtual.get("facility");
+				String lonEntidade = "Longitude";
+				double lon = (double) agentAtual.get("lon");
+				String latEntidade = "Latitude";
+				double lat = (double) agentAtual.get("lat");
+				combo3Historico.add(name);
+				int size = combo3Historico.size();
+				if (size >= 2) {
+					if (!combo3Historico.get(size - 1).equalsIgnoreCase(combo3Historico.get(size - 2))) {
+						resetTable(model3);
+					}
+				}
+				model3.addRow(new Object[] { chargeMaxEntidade, chargeMax });
+				model3.addRow(new Object[] { chargeEntidade, charge });
+				model3.addRow(new Object[] { roleEntidade, role });
+				model3.addRow(new Object[] { routeLengthEntidade, routeLength });
+				model3.addRow(new Object[] { teamEntidade, team });
+				model3.addRow(new Object[] { loadMaxEntidade, loadMax });
+				model3.addRow(new Object[] { speedEntidade, speed });
+				model3.addRow(new Object[] { visionEntidade, vision });
+				model3.addRow(new Object[] { routeEntidade, route });
+				model3.addRow(new Object[] { loadEntidade, load });
+				model3.addRow(new Object[] { resultEntidade, lastActionResult });
+				model3.addRow(new Object[] { typeEntidade, lastActionType });
+				model3.addRow(new Object[] { paramsEntidade, lastActionParams });
+				model3.addRow(new Object[] { skillEntidade, skill });
+				model3.addRow(new Object[] { nameEntidade, name });
+				model3.addRow(new Object[] { itemsEntidade, items });
+				model3.addRow(new Object[] { facilityEntidade, facility });
+				model3.addRow(new Object[] { lonEntidade, lon });
+				model3.addRow(new Object[] { latEntidade, lat });
+			}
+
+		}
+
 		comboBoxTblAgents1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				DefaultTableModel model = (DefaultTableModel) tableAgents1.getModel();
@@ -675,22 +955,61 @@ public class reader {
 				for (int i = 0; i < agents.size(); i++) {
 					JSONObject agentAtual = (JSONObject) agents.get(i);
 					if (agentAtual.get("name").equals(agenteSelecionadoCombo1)) {
+
+						String chargeMaxEntidade = "Charge Max";
 						long chargeMax = (long) agentAtual.get("chargeMax");
+
+						String chargeEntidade = "Charge";
 						long charge = (long) agentAtual.get("charge");
+
+						String roleEntidade = "Role";
 						String role = (String) agentAtual.get("role");
+
+						String routeLengthEntidade = "Route Length";
 						long routeLength = (long) agentAtual.get("routeLength");
+
+						String teamEntidade = "Team";
 						String team = (String) agentAtual.get("team");
+
+						String loadMaxEntidade = "Load Max";
 						long loadMax = (long) agentAtual.get("loadMax");
+
+						String speedEntidade = "Speed";
 						long speed = (long) agentAtual.get("speed");
+
+						String visionEntidade = "Vision";
 						long vision = (long) agentAtual.get("vision");
+
+						String routeEntidade = "Route";
 						JSONArray route = (JSONArray) agentAtual.get("route");
+
+						String loadEntidade = "Load";
 						long load = (long) agentAtual.get("load");
+
 						JSONObject lastAction = (JSONObject) agentAtual.get("lastAction");
+						String resultEntidade = "Last Action Result";
+						String lastActionResult = (String) lastAction.get("result");
+						String typeEntidade = "Last Action Type";
+						String lastActionType = (String) lastAction.get("type");
+						String paramsEntidade = "Last Action Params";
+						JSONArray lastActionParams = (JSONArray) lastAction.get("params");
+
+						String skillEntidade = "Skill";
 						long skill = (long) agentAtual.get("skill");
+
+						String nameEntidade = "Name";
 						String name = (String) agentAtual.get("name");
+
+						String itemsEntidade = "Items";
 						JSONArray items = (JSONArray) agentAtual.get("items");
+
+						String facilityEntidade = "Facility";
 						String facility = (String) agentAtual.get("facility");
+
+						String lonEntidade = "Longitude";
 						double lon = (double) agentAtual.get("lon");
+
+						String latEntidade = "Latitude";
 						double lat = (double) agentAtual.get("lat");
 
 						combo1Historico.add(name);
@@ -698,11 +1017,47 @@ public class reader {
 						if (size >= 2) {
 							if (!combo1Historico.get(size - 1).equalsIgnoreCase(combo1Historico.get(size - 2))) {
 								resetTable(model);
+								model.addRow(new Object[] { chargeMaxEntidade, chargeMax });
+								model.addRow(new Object[] { chargeEntidade, charge });
+								model.addRow(new Object[] { roleEntidade, role });
+								model.addRow(new Object[] { routeLengthEntidade, routeLength });
+								model.addRow(new Object[] { teamEntidade, team });
+								model.addRow(new Object[] { loadMaxEntidade, loadMax });
+								model.addRow(new Object[] { speedEntidade, speed });
+								model.addRow(new Object[] { visionEntidade, vision });
+								model.addRow(new Object[] { routeEntidade, route });
+								model.addRow(new Object[] { loadEntidade, load });
+								model.addRow(new Object[] { resultEntidade, lastActionResult });
+								model.addRow(new Object[] { typeEntidade, lastActionType });
+								model.addRow(new Object[] { paramsEntidade, lastActionParams });
+								model.addRow(new Object[] { skillEntidade, skill });
+								model.addRow(new Object[] { nameEntidade, name });
+								model.addRow(new Object[] { itemsEntidade, items });
+								model.addRow(new Object[] { facilityEntidade, facility });
+								model.addRow(new Object[] { lonEntidade, lon });
+								model.addRow(new Object[] { latEntidade, lat });
 							}
+						} else {
+							model.addRow(new Object[] { chargeMaxEntidade, chargeMax });
+							model.addRow(new Object[] { chargeEntidade, charge });
+							model.addRow(new Object[] { roleEntidade, role });
+							model.addRow(new Object[] { routeLengthEntidade, routeLength });
+							model.addRow(new Object[] { teamEntidade, team });
+							model.addRow(new Object[] { loadMaxEntidade, loadMax });
+							model.addRow(new Object[] { speedEntidade, speed });
+							model.addRow(new Object[] { visionEntidade, vision });
+							model.addRow(new Object[] { routeEntidade, route });
+							model.addRow(new Object[] { loadEntidade, load });
+							model.addRow(new Object[] { resultEntidade, lastActionResult });
+							model.addRow(new Object[] { typeEntidade, lastActionType });
+							model.addRow(new Object[] { paramsEntidade, lastActionParams });
+							model.addRow(new Object[] { skillEntidade, skill });
+							model.addRow(new Object[] { nameEntidade, name });
+							model.addRow(new Object[] { itemsEntidade, items });
+							model.addRow(new Object[] { facilityEntidade, facility });
+							model.addRow(new Object[] { lonEntidade, lon });
+							model.addRow(new Object[] { latEntidade, lat });
 						}
-
-						model.addRow(new Object[] { chargeMax, charge, role, routeLength, lon, team, loadMax, speed,
-								vision, route, load, lastAction, skill, step, items, facility, lat });
 					}
 				}
 			}
@@ -716,22 +1071,61 @@ public class reader {
 				for (int i = 0; i < agents.size(); i++) {
 					JSONObject agentAtual = (JSONObject) agents.get(i);
 					if (agentAtual.get("name").equals(agenteSelecionadoCombo2)) {
+
+						String chargeMaxEntidade = "Charge Max";
 						long chargeMax = (long) agentAtual.get("chargeMax");
+
+						String chargeEntidade = "Charge";
 						long charge = (long) agentAtual.get("charge");
+
+						String roleEntidade = "Role";
 						String role = (String) agentAtual.get("role");
+
+						String routeLengthEntidade = "Route Length";
 						long routeLength = (long) agentAtual.get("routeLength");
+
+						String teamEntidade = "Team";
 						String team = (String) agentAtual.get("team");
+
+						String loadMaxEntidade = "Load Max";
 						long loadMax = (long) agentAtual.get("loadMax");
+
+						String speedEntidade = "Speed";
 						long speed = (long) agentAtual.get("speed");
+
+						String visionEntidade = "Vision";
 						long vision = (long) agentAtual.get("vision");
+
+						String routeEntidade = "Route";
 						JSONArray route = (JSONArray) agentAtual.get("route");
+
+						String loadEntidade = "Load";
 						long load = (long) agentAtual.get("load");
+
 						JSONObject lastAction = (JSONObject) agentAtual.get("lastAction");
+						String resultEntidade = "Last Action Result";
+						String lastActionResult = (String) lastAction.get("result");
+						String typeEntidade = "Last Action Type";
+						String lastActionType = (String) lastAction.get("type");
+						String paramsEntidade = "Last Action Params";
+						JSONArray lastActionParams = (JSONArray) lastAction.get("params");
+
+						String skillEntidade = "Skill";
 						long skill = (long) agentAtual.get("skill");
+
+						String nameEntidade = "Name";
 						String name = (String) agentAtual.get("name");
+
+						String itemsEntidade = "Items";
 						JSONArray items = (JSONArray) agentAtual.get("items");
+
+						String facilityEntidade = "Facility";
 						String facility = (String) agentAtual.get("facility");
+
+						String lonEntidade = "Longitude";
 						double lon = (double) agentAtual.get("lon");
+
+						String latEntidade = "Latitude";
 						double lat = (double) agentAtual.get("lat");
 
 						combo2Historico.add(name);
@@ -739,11 +1133,47 @@ public class reader {
 						if (size >= 2) {
 							if (!combo2Historico.get(size - 1).equalsIgnoreCase(combo2Historico.get(size - 2))) {
 								resetTable(model);
+								model.addRow(new Object[] { chargeMaxEntidade, chargeMax });
+								model.addRow(new Object[] { chargeEntidade, charge });
+								model.addRow(new Object[] { roleEntidade, role });
+								model.addRow(new Object[] { routeLengthEntidade, routeLength });
+								model.addRow(new Object[] { teamEntidade, team });
+								model.addRow(new Object[] { loadMaxEntidade, loadMax });
+								model.addRow(new Object[] { speedEntidade, speed });
+								model.addRow(new Object[] { visionEntidade, vision });
+								model.addRow(new Object[] { routeEntidade, route });
+								model.addRow(new Object[] { loadEntidade, load });
+								model.addRow(new Object[] { resultEntidade, lastActionResult });
+								model.addRow(new Object[] { typeEntidade, lastActionType });
+								model.addRow(new Object[] { paramsEntidade, lastActionParams });
+								model.addRow(new Object[] { skillEntidade, skill });
+								model.addRow(new Object[] { nameEntidade, name });
+								model.addRow(new Object[] { itemsEntidade, items });
+								model.addRow(new Object[] { facilityEntidade, facility });
+								model.addRow(new Object[] { lonEntidade, lon });
+								model.addRow(new Object[] { latEntidade, lat });
 							}
+						} else {
+							model.addRow(new Object[] { chargeMaxEntidade, chargeMax });
+							model.addRow(new Object[] { chargeEntidade, charge });
+							model.addRow(new Object[] { roleEntidade, role });
+							model.addRow(new Object[] { routeLengthEntidade, routeLength });
+							model.addRow(new Object[] { teamEntidade, team });
+							model.addRow(new Object[] { loadMaxEntidade, loadMax });
+							model.addRow(new Object[] { speedEntidade, speed });
+							model.addRow(new Object[] { visionEntidade, vision });
+							model.addRow(new Object[] { routeEntidade, route });
+							model.addRow(new Object[] { loadEntidade, load });
+							model.addRow(new Object[] { resultEntidade, lastActionResult });
+							model.addRow(new Object[] { typeEntidade, lastActionType });
+							model.addRow(new Object[] { paramsEntidade, lastActionParams });
+							model.addRow(new Object[] { skillEntidade, skill });
+							model.addRow(new Object[] { nameEntidade, name });
+							model.addRow(new Object[] { itemsEntidade, items });
+							model.addRow(new Object[] { facilityEntidade, facility });
+							model.addRow(new Object[] { lonEntidade, lon });
+							model.addRow(new Object[] { latEntidade, lat });
 						}
-
-						model.addRow(new Object[] { chargeMax, charge, role, routeLength, lon, team, loadMax, speed,
-								vision, route, load, lastAction, skill, step, items, facility, lat });
 					}
 				}
 			}
@@ -757,22 +1187,61 @@ public class reader {
 				for (int i = 0; i < agents.size(); i++) {
 					JSONObject agentAtual = (JSONObject) agents.get(i);
 					if (agentAtual.get("name").equals(agenteSelecionadoCombo3)) {
+
+						String chargeMaxEntidade = "Charge Max";
 						long chargeMax = (long) agentAtual.get("chargeMax");
+
+						String chargeEntidade = "Charge";
 						long charge = (long) agentAtual.get("charge");
+
+						String roleEntidade = "Role";
 						String role = (String) agentAtual.get("role");
+
+						String routeLengthEntidade = "Route Length";
 						long routeLength = (long) agentAtual.get("routeLength");
+
+						String teamEntidade = "Team";
 						String team = (String) agentAtual.get("team");
+
+						String loadMaxEntidade = "Load Max";
 						long loadMax = (long) agentAtual.get("loadMax");
+
+						String speedEntidade = "Speed";
 						long speed = (long) agentAtual.get("speed");
+
+						String visionEntidade = "Vision";
 						long vision = (long) agentAtual.get("vision");
+
+						String routeEntidade = "Route";
 						JSONArray route = (JSONArray) agentAtual.get("route");
+
+						String loadEntidade = "Load";
 						long load = (long) agentAtual.get("load");
+
 						JSONObject lastAction = (JSONObject) agentAtual.get("lastAction");
+						String resultEntidade = "Last Action Result";
+						String lastActionResult = (String) lastAction.get("result");
+						String typeEntidade = "Last Action Type";
+						String lastActionType = (String) lastAction.get("type");
+						String paramsEntidade = "Last Action Params";
+						JSONArray lastActionParams = (JSONArray) lastAction.get("params");
+
+						String skillEntidade = "Skill";
 						long skill = (long) agentAtual.get("skill");
+
+						String nameEntidade = "Name";
 						String name = (String) agentAtual.get("name");
+
+						String itemsEntidade = "Items";
 						JSONArray items = (JSONArray) agentAtual.get("items");
+
+						String facilityEntidade = "Facility";
 						String facility = (String) agentAtual.get("facility");
+
+						String lonEntidade = "Longitude";
 						double lon = (double) agentAtual.get("lon");
+
+						String latEntidade = "Latitude";
 						double lat = (double) agentAtual.get("lat");
 
 						combo3Historico.add(name);
@@ -780,63 +1249,50 @@ public class reader {
 						if (size >= 2) {
 							if (!combo3Historico.get(size - 1).equalsIgnoreCase(combo3Historico.get(size - 2))) {
 								resetTable(model);
+								model.addRow(new Object[] { chargeMaxEntidade, chargeMax });
+								model.addRow(new Object[] { chargeEntidade, charge });
+								model.addRow(new Object[] { roleEntidade, role });
+								model.addRow(new Object[] { routeLengthEntidade, routeLength });
+								model.addRow(new Object[] { teamEntidade, team });
+								model.addRow(new Object[] { loadMaxEntidade, loadMax });
+								model.addRow(new Object[] { speedEntidade, speed });
+								model.addRow(new Object[] { visionEntidade, vision });
+								model.addRow(new Object[] { routeEntidade, route });
+								model.addRow(new Object[] { loadEntidade, load });
+								model.addRow(new Object[] { resultEntidade, lastActionResult });
+								model.addRow(new Object[] { typeEntidade, lastActionType });
+								model.addRow(new Object[] { paramsEntidade, lastActionParams });
+								model.addRow(new Object[] { skillEntidade, skill });
+								model.addRow(new Object[] { nameEntidade, name });
+								model.addRow(new Object[] { itemsEntidade, items });
+								model.addRow(new Object[] { facilityEntidade, facility });
+								model.addRow(new Object[] { lonEntidade, lon });
+								model.addRow(new Object[] { latEntidade, lat });
 							}
+						} else {
+							model.addRow(new Object[] { chargeMaxEntidade, chargeMax });
+							model.addRow(new Object[] { chargeEntidade, charge });
+							model.addRow(new Object[] { roleEntidade, role });
+							model.addRow(new Object[] { routeLengthEntidade, routeLength });
+							model.addRow(new Object[] { teamEntidade, team });
+							model.addRow(new Object[] { loadMaxEntidade, loadMax });
+							model.addRow(new Object[] { speedEntidade, speed });
+							model.addRow(new Object[] { visionEntidade, vision });
+							model.addRow(new Object[] { routeEntidade, route });
+							model.addRow(new Object[] { loadEntidade, load });
+							model.addRow(new Object[] { resultEntidade, lastActionResult });
+							model.addRow(new Object[] { typeEntidade, lastActionType });
+							model.addRow(new Object[] { paramsEntidade, lastActionParams });
+							model.addRow(new Object[] { skillEntidade, skill });
+							model.addRow(new Object[] { nameEntidade, name });
+							model.addRow(new Object[] { itemsEntidade, items });
+							model.addRow(new Object[] { facilityEntidade, facility });
+							model.addRow(new Object[] { lonEntidade, lon });
+							model.addRow(new Object[] { latEntidade, lat });
 						}
-
-						model.addRow(new Object[] { chargeMax, charge, role, routeLength, lon, team, loadMax, speed,
-								vision, route, load, lastAction, skill, step, items, facility, lat });
 					}
 				}
 			}
 		});
-
-		DefaultTableModel model = (DefaultTableModel) tableAgents1.getModel();
-		DefaultTableModel model2 = (DefaultTableModel) tableAgents2.getModel();
-		DefaultTableModel model3 = (DefaultTableModel) tableAgents3.getModel();
-
-		Object agenteSelecionadoCombo1 = comboBoxTblAgents1.getSelectedItem();
-		Object agenteSelecionadoCombo2 = comboBoxTblAgents2.getSelectedItem();
-		Object agenteSelecionadoCombo3 = comboBoxTblAgents3.getSelectedItem();
-
-		for (int i = 0; i < agents.size(); i++) {
-
-			JSONObject agentAtual = (JSONObject) agents.get(i);
-			long chargeMax = (long) agentAtual.get("chargeMax");
-			long charge = (long) agentAtual.get("charge");
-			String role = (String) agentAtual.get("role");
-			long routeLength = (long) agentAtual.get("routeLength");
-			String team = (String) agentAtual.get("team");
-			long loadMax = (long) agentAtual.get("loadMax");
-			long speed = (long) agentAtual.get("speed");
-			long vision = (long) agentAtual.get("vision");
-			JSONArray route = (JSONArray) agentAtual.get("route");
-			long load = (long) agentAtual.get("load");
-			JSONObject lastAction = (JSONObject) agentAtual.get("lastAction");
-			long skill = (long) agentAtual.get("skill");
-			String name = (String) agentAtual.get("name");
-			JSONArray items = (JSONArray) agentAtual.get("items");
-			String facility = (String) agentAtual.get("facility");
-			double lon = (double) agentAtual.get("lon");
-			double lat = (double) agentAtual.get("lat");
-
-			if (name.equals(agenteSelecionadoCombo1)) {
-				combo1Historico.add(name);
-				model.addRow(new Object[] { chargeMax, charge, role, routeLength, lon, team, loadMax, speed, vision,
-						route, load, lastAction, skill, step, items, facility, lat });
-			}
-
-			if (name.equals(agenteSelecionadoCombo2)) {
-				combo2Historico.add(name);
-				model2.addRow(new Object[] { chargeMax, charge, role, routeLength, lon, team, loadMax, speed, vision,
-						route, load, lastAction, skill, step, items, facility, lat });
-			}
-
-			if (name.equals(agenteSelecionadoCombo3)) {
-				combo3Historico.add(name);
-				model3.addRow(new Object[] { chargeMax, charge, role, routeLength, lon, team, loadMax, speed, vision,
-						route, load, lastAction, skill, step, items, facility, lat });
-			}
-
-		}
 	}
 }
